@@ -1,0 +1,5 @@
+{
+    "dataworkspace.excludedProjects": [
+        "H2/H2.sqlproj"
+    ]
+}
