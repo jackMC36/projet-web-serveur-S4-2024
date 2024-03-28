@@ -1,6 +1,6 @@
 # Projet Techno Web Serveur
 
-**Ecran à afficher (page html)**
+## Ecran à afficher (page html)
 
 	- Liste des appartements d'un propriétaire / locataire
 	- Liste des immeubles
@@ -9,14 +9,14 @@
 	- Page de connexion / inscription
 	- Page de contact
 	
-##Classe Java
+## Classe Java
 
 	- Immeuble
 	- Syndicat
 	- Appt
 	- Personne (avec héritage)
 	
-##BDD (table : attributs)
+## BDD (table : attributs)
 
 	- Immeuble : syndicId (clé étrangère = FK)
 	- Syndicat
@@ -24,10 +24,10 @@
 	- Personne
 	- Occupation (table de jointure entre Appt et Personne) : personne (FK), statut, n° appt (FK)
 	
-##Solution technologique
+## Solution technologique
 
 Utilisation de Java
 
-##Rapport
+## Rapport
 
 Noté ce qui s'est bien passé et moins bien
