@@ -1,6 +1,6 @@
 # Projet Techno Web Serveur
 
-##Ecran à afficher (page html)
+**Ecran à afficher (page html)**
 
 	- Liste des appartements d'un propriétaire / locataire
 	- Liste des immeubles
