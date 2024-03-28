@@ -2,12 +2,12 @@
 
 ## Ecran à afficher (page html)
 
-	- Liste des appartements d'un propriétaire / locataire
-	- Liste des immeubles
-	- Détail d'un appart / immeuble / syndicat
-	- Fiche "Identité" (pour une personne)
-	- Page de connexion / inscription
-	- Page de contact
+- Liste des appartements d'un propriétaire / locataire
+- Liste des immeubles
+- Détail d'un appart / immeuble / syndicat
+- Fiche "Identité" (pour une personne)
+- Page de connexion / inscription
+- Page de contact
 	
 ## Classe Java
 
