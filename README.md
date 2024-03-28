@@ -11,18 +11,18 @@
 	
 ## Classe Java
 
-	- Immeuble
-	- Syndicat
-	- Appt
-	- Personne (avec héritage)
+- Immeuble
+- Syndicat
+- Appt
+- Personne (avec héritage)
 	
 ## BDD (table : attributs)
 
-	- Immeuble : syndicId (clé étrangère = FK)
-	- Syndicat
-	- Appt : immeubleId (FK)
-	- Personne
-	- Occupation (table de jointure entre Appt et Personne) : personne (FK), statut, n° appt (FK)
+- Immeuble : syndicId (clé étrangère = FK)
+- Syndicat
+- Appt : immeubleId (FK)
+- Personne
+- Occupation (table de jointure entre Appt et Personne) : personne (FK), statut, n° appt (FK)
 	
 ## Solution technologique
 
