@@ -31,3 +31,8 @@ Utilisation de Java
 ## Rapport
 
 Noté ce qui s'est bien passé et moins bien
+
+
+## Pour lancer
+
+./gradlew bootRun
