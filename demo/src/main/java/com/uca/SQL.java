@@ -1,4 +1,5 @@
 import java.sql.*;
+import main.java._Connector;
 
 public class SQL{
     public static void Init(){
