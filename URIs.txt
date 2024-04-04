@@ -1,0 +1,25 @@
+URIs
+
+GET /login
+POST /login
+
+GET /inscription
+POST /inscription
+
+GET /contact
+POST /contact
+
+GET /immeuble						#récupérer la liste
+POST /immeuble						#créer / modifier?
+POST /immeuble/delete					#supprimer
+
+GET /immeuble/appartement				#récupérer la liste
+POST /immeuble/appartement				#créer / modifier?
+POST /immeuble/appartement/delete			#supprimer
+
+GET /immeuble/appartement/occupant			#récupérer la liste
+POST /immeuble/appartement/occupant			#créer / modifier?
+POST /immeuble/appartement/occupant/delete		#supprimer
+
+--> utilisateur peut voir des statistiques sur son parc immobilier total, ou par immeuble (% de logements loués, % de logements vides)
+
