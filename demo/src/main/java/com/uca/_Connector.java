@@ -1,4 +1,4 @@
-package main.java;
+package com.uca;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
