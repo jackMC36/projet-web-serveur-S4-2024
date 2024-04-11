@@ -1,7 +1,7 @@
-package com.uca.core;
+package src.com.uca.core;
 
-import com.uca.dao.UserDAO;
-import com.uca.entity.UserEntity;
+import src.com.uca.dao.UserDAO;
+import src.com.uca.entity.UserEntity;
 
 import java.util.ArrayList;
 

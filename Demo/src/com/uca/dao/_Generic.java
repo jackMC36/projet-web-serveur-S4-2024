@@ -1,4 +1,4 @@
-package com.uca.dao;
+package src.com.uca.dao;
 
 import java.sql.Connection;
 

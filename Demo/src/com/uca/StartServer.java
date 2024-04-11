@@ -1,7 +1,7 @@
 package com.uca;
 
-import com.uca.dao._Initializer;
-import com.uca.gui.*;
+import src.com.uca.dao._Initializer;
+import src.com.uca.gui.*;
 
 import static spark.Spark.*;
 
