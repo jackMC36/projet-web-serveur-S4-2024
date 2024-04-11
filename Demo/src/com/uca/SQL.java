@@ -1,7 +1,7 @@
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import main.java._Connector;
+import com.uca._Connector;
 
 public class SQL{
     public static void Init(){

@@ -35,4 +35,4 @@ Noté ce qui s'est bien passé et moins bien
 
 ## Pour lancer
 
-./gradlew bootRun
+./gradlew run
