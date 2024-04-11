@@ -1,11 +1,19 @@
+<<<<<<< HEAD
+arguments=--init-script /home/jack/.config/Code/User/globalStorage/redhat.java/1.29.0/config_linux/org.eclipse.osgi/55/0/.cp/gradle/init/init.gradle --init-script /home/jack/.config/Code/User/globalStorage/redhat.java/1.29.0/config_linux/org.eclipse.osgi/55/0/.cp/gradle/protobuf/init.gradle
+=======
 arguments=--init-script /home/kigalfreve/.config/Code/User/globalStorage/redhat.java/1.29.0/config_linux/org.eclipse.osgi/55/0/.cp/gradle/init/init.gradle --init-script /home/kigalfreve/.config/Code/User/globalStorage/redhat.java/1.29.0/config_linux/org.eclipse.osgi/55/0/.cp/gradle/protobuf/init.gradle
+>>>>>>> fce9f1bc79538c95733947df31159b3dcb34a593
 auto.sync=false
 build.scans.enabled=false
 connection.gradle.distribution=GRADLE_DISTRIBUTION(WRAPPER)
 connection.project.dir=
 eclipse.preferences.version=1
 gradle.user.home=
+<<<<<<< HEAD
+java.home=/usr/lib/jvm/jdk-21.0.2+13
+=======
 java.home=/usr/lib/jvm/java-11-openjdk-amd64
+>>>>>>> fce9f1bc79538c95733947df31159b3dcb34a593
 jvm.arguments=
 offline.mode=false
 override.workspace.settings=true

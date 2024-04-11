@@ -1,6 +1,6 @@
-package com.uca.dao;
+package src.com.uca.dao;
 
-import com.uca.entity.UserEntity;
+import src.com.uca.entity.UserEntity;
 
 import java.sql.*;
 import java.util.ArrayList;

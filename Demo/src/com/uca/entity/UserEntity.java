@@ -1,4 +1,4 @@
-package com.uca.entity;
+package src.com.uca.entity;
 
 import java.sql.Timestamp;
 

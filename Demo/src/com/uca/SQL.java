@@ -1,10 +1,10 @@
-package com.uca;
+package src.com.uca;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import com.uca._Connector;
-import com.uca.Immeuble;
+import src.com.uca._Connector;
+import src.com.uca.entity.Immeuble;
 
 
 public class SQL{

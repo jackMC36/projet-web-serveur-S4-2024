@@ -1,4 +1,4 @@
-package com.uca.gui;
+package src.com.uca.gui;
 
 import com.uca.StartServer;
 import freemarker.template.Configuration;
