@@ -17,7 +17,7 @@ public class SQL{
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Immeuble (nom VARCHAR(40), adresse VARCHAR(50) PRIMARY KEY, syndicat VARCHAR(25), FOREIGN KEY (syndicat) REFERENCES Syndicat(nom));");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie FLOAT, estLoue BOOLEAN, adresse VARCHAR(40), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie INT, estLoue BOOLEAN, adresse VARCHAR(40), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
             statement.executeUpdate();
 
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Personne (nom VARCHAR(30), prenom VARCHAR(30), numeroTel INT PRIMARY KEY);");
@@ -30,7 +30,7 @@ public class SQL{
             statement = connection.prepareStatement("INSERT INTO Immeuble (nom, adresse, syndicat) VALUES (?, ?, ?);");
             statement.setString(1, "Immeuble A");
             statement.setString(2, "123 Main St");
-            statement.setInt(3, "Syndicat A");
+            statement.setString(3, "Syndicat A");
             statement.executeUpdate();
 
 
@@ -38,7 +38,7 @@ public class SQL{
             statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (?, ?, ?, ?, ?);");
             statement.setInt(1, 2);
             statement.setInt(2, 101);
-            statement.setFloat(3, 75.5);
+            statement.setInt(3, 75);
             statement.setBoolean(4, false);
             statement.setString(5, "123 Main St");
             statement.executeUpdate();
