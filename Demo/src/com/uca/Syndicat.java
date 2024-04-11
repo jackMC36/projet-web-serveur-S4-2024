@@ -1,3 +1,5 @@
+package com.uca;
+
 public class Syndicat {
     private String nom;
     private String adresse;

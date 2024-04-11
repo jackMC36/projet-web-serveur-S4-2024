@@ -1,7 +1,11 @@
+package com.uca;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.uca._Connector;
+import com.uca.Immeuble;
+
 
 public class SQL{
     public static void Init(){

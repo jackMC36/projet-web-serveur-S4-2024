@@ -1,3 +1,5 @@
+package com.uca;
+
 public class Personne {
     private String nom;
     private String prenom;

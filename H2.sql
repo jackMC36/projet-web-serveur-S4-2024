@@ -22,9 +22,9 @@ CREATE TABLE Appartement (
 CREATE TABLE Syndicat(
     nom VARCHAR(20),
     adresse VARCHAR(40),
-    numero INT PRIMARY KEY,
     adresse_mail VARCHAR(30),
-    nom_referent VARCHAR(20)
+    nom_referent VARCHAR(20),
+    PRIMARY KEY (nom, adresse)
 );
 
 CREATE TABLE Personne (
