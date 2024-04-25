@@ -5,7 +5,7 @@ import src.com.uca.entity.Immeuble;
 
 import java.util.ArrayList;
 
-public class ImmeubleCORE {
+public class ImmeubleCore {
 
     public static ArrayList<Immeuble> getAllImmeubles() {
         return new ImmeubleDAO().getAllImmeubles();
