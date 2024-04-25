@@ -9,7 +9,7 @@ import src.com.uca.entity.Immeuble;
 
 public class ImmeubleDAO extends _Generic<Immeuble> {
 
-    public ArrayList<Immeuble> getAllUsers() {
+    public ArrayList<Immeuble> getAllImmeubles() {
         ArrayList<Immeuble> entities = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Immeuble ORDER BY NOM ASC;");

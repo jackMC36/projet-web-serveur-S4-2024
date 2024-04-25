@@ -1,4 +1,4 @@
-<#ftl encoding="utf-8">
+c<#ftl encoding="utf-8">
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="main/resources/static/style.css">

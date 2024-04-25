@@ -65,7 +65,7 @@ public class SQL{
         }
     }
 
-    /*
+    
     public List<Immeuble> getAllImmeubles() {
     List<Immeuble> immeubles = new ArrayList<>();
     Connection connection = _Connector.getInstance();
@@ -85,5 +85,5 @@ public class SQL{
     
     return immeubles;
     }
-    */
+    
 }
