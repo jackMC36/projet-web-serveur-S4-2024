@@ -10,20 +10,26 @@ public class _Initializer {
 
         try {
 
-            PreparedStatement statementPersonne = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Personne ( nom VARCHAR(30), prenom VARCHAR(30), numero INT PRIMARY KEY);");
-            statementPersonne.executeUpdate();
+            PreparedStatement statement;
 
-            PreparedStatement statementSyndicat = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Syndicat( nom VARCHAR(20), adresse VARCHAR(40), numero INT UNIQUE,  adresse_mail VARCHAR(30), nom_referent VARCHAR(20), PRIMARY KEY (nom, adresse));");
-            statementSyndicat.executeUpdate();
+            //Init table
 
-            PreparedStatement statementImmeuble = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Immeuble (nom VARCHAR(30), adresse VARCHAR(40) PRIMARY KEY, numero INT, nom_syndicat VARCHAR(20), adresse_syndicat VARCHAR(40), FOREIGN KEY (numero, nom_syndicat, adresse_syndicat) REFERENCES Syndicat(numero, nom, adresse));");
-            statementImmeuble.executeUpdate();
 
-            PreparedStatement statementAppartement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie FLOAT, estLoue BOOLEAN, adresse VARCHAR(40), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse), PRIMARY KEY (numero,adresse));");
-            statementAppartement.executeUpdate();
 
-            PreparedStatement StatementOccupation = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numero INT, statut INT, appartement_numero INT, adresse VARCHAR(40), FOREIGN KEY (numero) REFERENCES Personne(numero), FOREIGN KEY (adresse) REFERENCES Appartement(adresse), FOREIGN KEY (appartement_numero) REFERENCES Appartement(numero));");
-            StatementOccupation.executeUpdate();
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Personne (nom VARCHAR(30), prenom VARCHAR(30), numeroTel INT PRIMARY KEY);");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Syndicat (nom VARCHAR(25), adresse VARCHAR(50), nom_referent VARCHAR(25), numeroTel INT, adresse_mail VARCHAR(30), PRIMARY KEY (nom,adresse), FOREIGN KEY (nom_referent, numeroTel) REFERENCES Personne(nom, numeroTel));");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Immeuble (nom VARCHAR(40), adresse VARCHAR(50) PRIMARY KEY, syndicat VARCHAR(25), FOREIGN KEY (syndicat) REFERENCES Syndicat(nom));");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie INT, estLoue BOOLEAN, adresse VARCHAR(40), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numero INT, statut INT, appartement_numero INT, adresse VARCHAR(40), FOREIGN KEY (numero) REFERENCES Personne(numero), FOREIGN KEY (adresse) REFERENCES Appartement(adresse), FOREIGN KEY (appartement_numero) REFERENCES Appartement(numero));");
+            statement.executeUpdate();
 
         } catch (Exception e){
             System.out.println(e.toString());

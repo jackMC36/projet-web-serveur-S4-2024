@@ -21,8 +21,7 @@ public class ImmeubleGUI {
         input.put("Immeubles", ImmeubleCore.getAllImmeubles());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("Immeubles/Immeubles.ftl");
-        template.setOutputEncoding("UTF-8");
+        Template template = configuration.getTemplate("src/main/resources/views/immeubles.ftl");
         template.process(input, output);
 
         return output.toString();

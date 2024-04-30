@@ -9,7 +9,7 @@ public class StartServer {
 
     public static void main(String[] args) {
         //Configure Spark
-        staticFiles.location("/static/");
+        staticFiles.location("main/static/");
         port(8081);
 
 
