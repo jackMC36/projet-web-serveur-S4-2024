@@ -5,13 +5,13 @@
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
-    <h2>List of Immeubles</h2>
+    <h2>List d'Immeubles</h2>
     <ul>
         <#list immeubles as immeuble>
             <li>
                 ${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
                 <form action="/deleteImmeuble" method="post">
-                    <input type="hidden" name="immeubleId" value="${immeuble.nom}">
+                    <input type="hidden" name="immeubleNom" value="${immeuble.nom}">
                     <input type="submit" value="Delete">
                 </form>
             </li>

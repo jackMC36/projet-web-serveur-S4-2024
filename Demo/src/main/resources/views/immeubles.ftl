@@ -11,7 +11,7 @@
             <li>
                 ${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
                 <form action="/deleteImmeuble" method="post">
-                    <input type="hidden" name="immeubleId" value="${immeuble.nom}">
+                    <input type="hidden" name="immeubleNom" value="${immeuble.nom}">
                     <input type="submit" value="Delete">
                 </form>
             </li>

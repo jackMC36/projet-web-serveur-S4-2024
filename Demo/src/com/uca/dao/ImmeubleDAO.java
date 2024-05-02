@@ -27,6 +27,7 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
 
     
                 entities.add(entity);
+                
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -34,6 +35,29 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
     
         return entities;
     }
+
+    public Immeuble getImmeubleByNom(String nom) {
+        Immeuble immeuble = null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Immeuble WHERE nom = ?;");
+            preparedStatement.setString(1, nom);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                Immeuble entity = new Immeuble();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setAdresse(resultSet.getString("adresse"));
+    
+                SyndicatDAO syndicatDAO = new SyndicatDAO();
+                Syndicat syndicat = syndicatDAO.getSyndicatByNom(resultSet.getString("syndicat"));
+                entity.setSyndicat(syndicat);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return immeuble;
+    }
+
 
     @Override
     public Immeuble create(Immeuble obj) {
