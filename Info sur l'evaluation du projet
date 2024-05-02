@@ -1,0 +1,8 @@
+Evaluation Web Serveur :
+
+- Liens entre les tables
+- Documentation du code propre est accessible facilement
+- Code propre, pas de code mort (ie. du code mis en commentaire et qui ne sert jamais)
+- L'authentification a bien été implémenté
+
+- 3 Bonus : dont le fait d'avoir ajouter du CSS au page ftml pour que ce soit plus esthétique
