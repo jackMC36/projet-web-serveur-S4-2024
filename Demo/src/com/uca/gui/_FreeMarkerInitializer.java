@@ -1,6 +1,6 @@
 package src.com.uca.gui;
 
-import com.uca.StartServer;
+import src.com.uca.StartServer;
 import freemarker.template.Configuration;
 import freemarker.template.TemplateExceptionHandler;
 

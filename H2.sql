@@ -6,7 +6,7 @@ CREATE TABLE Immeuble (
     nom VARCHAR(30),
     adresse VARCHAR(40) PRIMARY KEY,
     numero INT,
-    FOREIGN KEY (numero) REFERENCES Syndicat(numero)
+    FOREIGN KEY (numero) REFERENCES Syndicat(num_tel)
 );
 
 CREATE TABLE Appartement (
@@ -23,8 +23,9 @@ CREATE TABLE Syndicat(
     nom VARCHAR(20),
     adresse VARCHAR(40),
     adresse_mail VARCHAR(30),
+    num_tel INT,
     nom_referent VARCHAR(20),
-    PRIMARY KEY (nom, adresse)
+    PRIMARY KEY (num_tel)
 );
 
 CREATE TABLE Personne (

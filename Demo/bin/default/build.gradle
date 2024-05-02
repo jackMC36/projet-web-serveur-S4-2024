@@ -3,7 +3,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 application {
-    mainClass='com.uca.StartServer'
+    mainClass='src.com.uca.StartServer'
 }
 
 
@@ -20,10 +20,7 @@ dependencies {
     implementation 'org.mindrot:jbcrypt:0.4'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.11.1'
     implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.11.1'
-<<<<<<< HEAD
     implementation 'org.springframework:spring-webmvc:5.3.10'
-=======
->>>>>>> fce9f1bc79538c95733947df31159b3dcb34a593
 }
 test {
     useJUnitPlatform()
@@ -33,13 +30,9 @@ jar {
  manifest {
         attributes 'Implementation-Title': 'Gradle Quickstart',
                    'Implementation-Version': '1.0.0',
-                   'Main-Class': 'com.uca.StartServer'
+                   'Main-Class': 'src.com.uca.StartServer'
     }
 }
 
 sourceSets.main.java.srcDirs = ['src']
-<<<<<<< HEAD
 sourceSets.test.java.srcDirs = ['src']
-=======
-sourceSets.test.java.srcDirs = ['src']
->>>>>>> fce9f1bc79538c95733947df31159b3dcb34a593

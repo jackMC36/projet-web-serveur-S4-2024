@@ -1,15 +1,14 @@
 package src.com.uca.dao;
 
 import src.com.uca.entity.Immeuble;
+import src.com.uca.entity.Syndicat;
 
 import java.sql.*;
 import java.util.ArrayList;
 
-import src.com.uca.entity.Immeuble;
-
 public class ImmeubleDAO extends _Generic<Immeuble> {
 
-    public ArrayList<Immeuble> getAllUsers() {
+    public ArrayList<Immeuble> getAllImmeubles() {
         ArrayList<Immeuble> entities = new ArrayList<>();
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Immeuble ORDER BY NOM ASC;");
@@ -19,6 +18,10 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
                 entity.setNom(resultSet.getString("nom"));
                 entity.setNumero(resultSet.getInt("numero"));
                 entity.setAdresse(resultSet.getString("adresse"));
+                SyndicatDAO syndicatDAO = new SyndicatDAO();
+                Syndicat syndicat = syndicatDAO.getSyndicatByMail(resultSet.getString("mail"));
+                entity.setSyndicat(syndicat);
+
 
                 entities.add(entity);
             }

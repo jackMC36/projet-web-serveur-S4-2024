@@ -5,14 +5,72 @@ public class Appartement {
     private int etage;
     private int numero;
     private float superficie;
+    String adresse;
     private ArrayList<Personne> listeOccupant;
     private Boolean estLoue;
 
-    public Appartement(int etage, int numero, float superficie) {
+    public Appartement(){
+        //ignored
+    }
+
+    public int getEtage() {
+        return this.etage;
+    }
+
+    public void setEtage(int etage) {
         this.etage = etage;
+    }
+
+    public int getNumero() {
+        return this.numero;
+    }
+
+    public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    public String getAdresse() {
+        return this.adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
+    }
+
+    public float getSuperficie() {
+        return this.superficie;
+    }
+
+    public void setSuperficie(float superficie) {
         this.superficie = superficie;
-        this.listeOccupant = new ArrayList<Personne>();
-        this.estLoue = false;
+    }
+
+    public ArrayList<Personne> getListeOccupant() {
+        return this.listeOccupant;
+    }
+
+    public void setListeOccupant(ArrayList<Personne> listeOccupant) {
+        this.listeOccupant = listeOccupant;
+    }
+
+    public Boolean getEstLoue() {
+        return this.estLoue;
+    }
+
+    public void setEstLoue(Boolean estLoue) {
+        this.estLoue = estLoue;
+    }
+
+    @Override
+    public String toString() {
+        return "Appartement{" +
+                "etage=" + this.etage +
+                ", numero=" + this.numero +
+                ", superficie=" + this.superficie +
+                ", adresse='" + this.adresse + '\'' +
+                ", listeOccupant=" + this.listeOccupant +
+                ", estLoue=" + this.estLoue +
+                '}';
     }
 }
+

@@ -13,19 +13,9 @@ public class Immeuble{
     private ArrayList<Appartement> listeAppt;
 
 
-  
-    public Immeuble(String nom, String adresse, int numero, Syndicat syndicat){
-        this.nom = nom;
-        this.adresse = adresse;
-        this.numero = numero;
-        this.syndicat = syndicat;
-        this.listeAppt = new ArrayList<Appartement>();
-    }
 
     public Immeuble(){
-        this.nom = "";
-        this.adresse = "";
-        this.numero = -1;
+        // in
     }
 
     public void setNom(String nom){
@@ -39,5 +29,45 @@ public class Immeuble{
     public void setNumero(int numero){
         this.numero = numero;
     }
+
+    public void setSyndicat(Syndicat syndicat){
+        this.syndicat = syndicat;
+    }
+
+    public String getNom(){
+        return this.nom;
+    }
+
+    public String getAdresse(){
+        return this.adresse;
+    }
+
+    public String etSyndicatNom(){
+        return this.syndicat.getNom();
+    }
+
+    public int getNumero(){
+        return this.numero;
+    }
+
+    public ArrayList<Appartement> getListeAppt(){
+        return this.listeAppt;
+    }
+
+    public void setListeAppt(ArrayList<Appartement> listeAppt){
+        this.listeAppt = listeAppt;
+    }
+
+    @Override
+    public String toString(){
+        return "Immeuble{" +
+                "nom='" + this.nom + '\'' +
+                ", adresse='" + this.adresse + '\'' +
+                ", numero=" + this.numero +
+                ", syndicat=" + this.syndicat +
+                ", listeAppt=" + this.listeAppt +
+                '}';
+    }
+
 
 }
