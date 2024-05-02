@@ -11,4 +11,8 @@ public class ImmeubleCore {
         return new ImmeubleDAO().getAllImmeubles();
     }
 
+    public static void deleteImmeubleByNom(String nom) {
+        new ImmeubleDAO().deleteImmeubleByNom(nom);
+    }
+
 }

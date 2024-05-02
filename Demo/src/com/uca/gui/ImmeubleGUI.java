@@ -27,4 +27,20 @@ public class ImmeubleGUI {
 
         return output.toString();
     }
+
+    public static String deleteImmeubleByNom(String nom) throws IOException, TemplateException {
+        Configuration configuration = _FreeMarkerInitializer.getContext();
+    
+        ImmeubleCore.deleteImmeubleByNom(nom);
+    
+        Map<String, Object> input = new HashMap<>();
+        input.put("immeubles", ImmeubleCore.getAllImmeubles());
+    
+        Writer output = new StringWriter();
+        Template template = configuration.getTemplate("immeubles.ftl");
+        template.setOutputEncoding("UTF-8");
+        template.process(input, output);
+    
+        return output.toString();
+    }
 }

@@ -7,6 +7,7 @@ import src.com.uca.entity.Syndicat;
 import java.sql.*;
 import java.util.ArrayList;
 
+
 public class ImmeubleDAO extends _Generic<Immeuble> {
 
     public ArrayList<Immeuble> getAllImmeubles() {
@@ -58,6 +59,27 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
         return immeuble;
     }
 
+    public void deleteImmeubleByNom(String nom) {
+        try {
+            PreparedStatement preparedStatement1 = this.connect.prepareStatement("SELECT adresse FROM Immeuble WHERE nom = ?;");
+            preparedStatement1.setString(1, nom);
+            ResultSet resultSet = preparedStatement1.executeQuery();
+            if (resultSet.next()) {
+                String adresse = resultSet.getString("adresse");
+    
+                PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM Appartement WHERE adresse = ?;");
+                preparedStatement2.setString(1, adresse);
+                preparedStatement2.executeUpdate();
+    
+                PreparedStatement preparedStatement3 = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
+                preparedStatement3.setString(1, nom);
+                preparedStatement3.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     @Override
     public Immeuble create(Immeuble obj) {
@@ -76,11 +98,16 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
     @Override
     public void delete(Immeuble obj) {
         try {
-            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
-            preparedStatement.setString(1, obj.getNom());
-            preparedStatement.executeUpdate();
+            PreparedStatement preparedStatement1 = this.connect.prepareStatement("DELETE FROM Appartement WHERE adresse = ?");
+            String adresse = obj.getAdresse();
+            preparedStatement1.setString(1, adresse);
+            preparedStatement1.executeUpdate();
+
+            PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM Immeuble WHERE adresse = ?");
+            preparedStatement2.setString(1, adresse);
+            preparedStatement2.executeUpdate();
         } catch (SQLException e) {
-                e.printStackTrace();
+            e.printStackTrace();
         }
     }
 }

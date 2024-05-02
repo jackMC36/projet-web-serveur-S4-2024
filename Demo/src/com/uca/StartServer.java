@@ -19,5 +19,9 @@ public class StartServer {
         get("/immeubles", (req, res) -> {
             return ImmeubleGUI.getAllImmeubles();
         });
+
+        post("/deleteImmeuble", (req, res) -> {
+            return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
+        });
     }
 }
