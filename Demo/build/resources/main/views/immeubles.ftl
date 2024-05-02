@@ -6,7 +6,7 @@
 <body xmlns="http://www.w3.org/1999/html">
     <ul>
         <#list immeubles as immeuble>
-            <li>${immeuble.nom} - ${immeuble.adresse} - ${immeuble.syndicat}</li>
+            <li>${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}</li>
         </#list>
     </ul>
 </body>

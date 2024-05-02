@@ -16,7 +16,26 @@ public class PersonneDAO extends _Generic<Personne> {
             if (resultSet.next()) {
                 entity = new Personne();
                 entity.setNom(resultSet.getString("nom"));
-                entity.setNumTel(resultSet.getInt("numTel"));
+                entity.setPrenom(resultSet.getString("prenom"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entity;
+    }
+
+    public Personne getPersonneByNom(String nom) {
+        Personne entity = null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne WHERE nom = ? ORDER BY NOM ASC");
+            preparedStatement.setString(1, nom);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                entity = new Personne();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setPrenom(resultSet.getString("prenom"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
