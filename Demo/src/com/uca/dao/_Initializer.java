@@ -28,7 +28,7 @@ public class _Initializer {
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie INT, estLoue BOOLEAN, adresse VARCHAR(40), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numero INT, statut INT, appartement_numero INT, adresse VARCHAR(40), FOREIGN KEY (numero) REFERENCES Personne(numero), FOREIGN KEY (adresse) REFERENCES Appartement(adresse), FOREIGN KEY (appartement_numero) REFERENCES Appartement(numero));");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numero INT, statut INT, appartement_numero INT, adresse VARCHAR(40), FOREIGN KEY (numero) REFERENCES Personne(numeroTel), FOREIGN KEY (adresse) REFERENCES Appartement(adresse), FOREIGN KEY (appartement_numero) REFERENCES Appartement(numero));");
             statement.executeUpdate();
 
         } catch (Exception e){
@@ -36,4 +36,24 @@ public class _Initializer {
             throw new RuntimeException("could not create database !");
         }
     }
+
+    /*public List<Immeuble> getAllImmeubles() {
+        List<Immeuble> immeubles = new ArrayList<>();
+        Connection connection = _Connector.getInstance();
+        try {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM Immeuble");
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Immeuble immeuble = new Immeuble();
+            immeuble.setNom(resultSet.getString("nom"));
+            immeuble.setAdresse(resultSet.getString("adresse"));
+            immeubles.add(immeuble);
+        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return immeubles;
+        }
+    */
 }

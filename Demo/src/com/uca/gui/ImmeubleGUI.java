@@ -18,10 +18,11 @@ public class ImmeubleGUI {
 
         Map<String, Object> input = new HashMap<>();
 
-        input.put("Immeubles", ImmeubleCore.getAllImmeubles());
+        input.put("immeubles", ImmeubleCore.getAllImmeubles());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("src/main/resources/views/immeubles.ftl");
+        Template template = configuration.getTemplate("immeubles.ftl");
+        template.setOutputEncoding("UTF-8");
         template.process(input, output);
 
         return output.toString();

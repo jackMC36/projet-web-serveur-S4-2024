@@ -1,7 +1,7 @@
 package src.com.uca.dao;
 
+import src.com.uca.entity.Personne;
 import src.com.uca.entity.Syndicat;
-
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -21,14 +21,43 @@ public class SyndicatDAO extends _Generic<Syndicat> {
             if (resultSet.next()) {
                 entity = new Syndicat();
                 entity.setNom(resultSet.getString("nom"));
-                entity.setMail(resultSet.getString("mail"));
+                entity.setMail(resultSet.getString("adresse_mail"));
                 entity.setAdresse(resultSet.getString("adresse"));
-                entity.setNumTel(resultSet.getInt("numTel"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+
+                PersonneDAO personneDAO = new PersonneDAO();
+                Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
+                entity.setReferent(personne);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
     
+        return entity;
+    }
+
+    public Syndicat getSyndicatByNom(String nom) {
+        Syndicat entity = null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Syndicat WHERE nom = ? ORDER BY NOM ASC");
+            preparedStatement.setString(1, nom);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                entity = new Syndicat();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setMail(resultSet.getString("adresse_mail"));
+                entity.setAdresse(resultSet.getString("adresse"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+
+                PersonneDAO personneDAO = new PersonneDAO();
+                Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
+                entity.setReferent(personne);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return entity;
     }
 

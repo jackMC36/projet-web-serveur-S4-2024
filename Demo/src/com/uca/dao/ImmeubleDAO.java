@@ -1,6 +1,7 @@
 package src.com.uca.dao;
 
 import src.com.uca.entity.Immeuble;
+import src.com.uca.entity.Personne;
 import src.com.uca.entity.Syndicat;
 
 import java.sql.*;
@@ -16,30 +17,46 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
             while (resultSet.next()) {
                 Immeuble entity = new Immeuble();
                 entity.setNom(resultSet.getString("nom"));
-                entity.setNumero(resultSet.getInt("numero"));
                 entity.setAdresse(resultSet.getString("adresse"));
+    
                 SyndicatDAO syndicatDAO = new SyndicatDAO();
-                Syndicat syndicat = syndicatDAO.getSyndicatByMail(resultSet.getString("mail"));
+                Syndicat syndicat = syndicatDAO.getSyndicatByNom(resultSet.getString("syndicat"));
                 entity.setSyndicat(syndicat);
 
 
+
+    
                 entities.add(entity);
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+    
         return entities;
     }
 
     @Override
     public Immeuble create(Immeuble obj) {
-        //TODO !
-        return null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Immeuble (nom, adresse, syndicat) VALUES (?, ?, ?);");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.setString(2, obj.getAdresse());
+            preparedStatement.setString(3, obj.getSyndicatNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    return null;
     }
 
     @Override
     public void delete(Immeuble obj) {
-        //TODO !
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+                e.printStackTrace();
+        }
     }
 }

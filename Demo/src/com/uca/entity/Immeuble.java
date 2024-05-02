@@ -42,7 +42,7 @@ public class Immeuble{
         return this.adresse;
     }
 
-    public String etSyndicatNom(){
+    public String getSyndicatNom(){
         return this.syndicat.getNom();
     }
 
