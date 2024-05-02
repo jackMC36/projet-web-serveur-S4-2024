@@ -36,4 +36,24 @@ public class _Initializer {
             throw new RuntimeException("could not create database !");
         }
     }
+
+    /*public List<Immeuble> getAllImmeubles() {
+        List<Immeuble> immeubles = new ArrayList<>();
+        Connection connection = _Connector.getInstance();
+        try {
+        PreparedStatement statement = connection.prepareStatement("SELECT * FROM Immeuble");
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            Immeuble immeuble = new Immeuble();
+            immeuble.setNom(resultSet.getString("nom"));
+            immeuble.setAdresse(resultSet.getString("adresse"));
+            immeubles.add(immeuble);
+        }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return immeubles;
+        }
+    */
 }
