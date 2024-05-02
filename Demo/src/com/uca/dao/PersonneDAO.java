@@ -45,13 +45,28 @@ public class PersonneDAO extends _Generic<Personne> {
 
     @Override
     public Personne create(Personne obj) {
-        //TODO !
-        return null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Personne(nom, prenom, numeroTel) VALUES(?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.setString(2, obj.getPrenom());
+            preparedStatement.setInt(3, obj.getNumTel());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
+
 
     @Override
     public void delete(Personne obj) {
-        //TODO !
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Personne WHERE nom = ?");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

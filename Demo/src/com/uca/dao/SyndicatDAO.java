@@ -12,6 +12,30 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         //ignore
     }
 
+    public ArrayList<Syndicat> getAllSyndicats() {
+        ArrayList<Syndicat> syndicats = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Syndicat ORDER BY NOM ASC");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Syndicat entity = new Syndicat();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setMail(resultSet.getString("adresse_mail"));
+                entity.setAdresse(resultSet.getString("adresse"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+
+                PersonneDAO personneDAO = new PersonneDAO();
+                Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
+                entity.setReferent(personne);
+
+                syndicats.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return syndicats;
+    }
+
     public Syndicat getSyndicatByMail(String mail) {
         Syndicat entity = null;
         try {

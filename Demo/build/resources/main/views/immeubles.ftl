@@ -5,6 +5,9 @@
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
+    <form action="/syndicats" method="get">
+        <input type="submit" value="Syndicats">
+    </form>
     <h2>List d'Immeubles</h2>
     <ul>
         <#list immeubles as immeuble>

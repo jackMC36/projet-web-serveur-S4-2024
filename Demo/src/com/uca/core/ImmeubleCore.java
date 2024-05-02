@@ -15,4 +15,10 @@ public class ImmeubleCore {
         new ImmeubleDAO().deleteImmeubleByNom(nom);
     }
 
+    public static void saveImmeuble(Immeuble immeuble) {
+        new ImmeubleDAO().create(immeuble);
+    }
+
+    
+
 }
