@@ -4,6 +4,7 @@
     <link rel="stylesheet" type="text/css" href="src/main/resources/static/style.css">
 </head>
 <body xmlns="http://www.w3.org/1999/html">
+
     <ul>
         <#list appartements as appartement>
             <li>
