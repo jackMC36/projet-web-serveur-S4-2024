@@ -28,7 +28,7 @@
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
-    <h2>créer un nouvel immeuble:</h2>
+    <h2>Créer un nouvel immeuble:</h2>
     <form action="/saveImmeuble" onsubmit="return validateForm()" method="post">
         <label for="nom">Nom:</label><br>
         <input type="text" id="nom" name="nom"><br>

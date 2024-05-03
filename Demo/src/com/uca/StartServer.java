@@ -31,6 +31,16 @@ public class StartServer {
         post("/saveImmeuble", (req, res) -> {
             return ImmeubleGUI.saveImmeuble(req.queryParams("nom"), req.queryParams("adresse"), req.queryParams("syndicatNom"));
         });
+        
+        get("/appartements", (req, res) -> {
+            return AppartementGUI.getAllAppartementsByAdresse(req);
+        });
+
+        /*
+        post("/deleteAppartement", (req, res) -> {
+            return AppartementGUI.deleteAppartement(req.queryParams("Numero","Adresse"));
+        });
+        */
 
 
 

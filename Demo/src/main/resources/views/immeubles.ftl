@@ -15,7 +15,7 @@
     <ul>
         <#list immeubles as immeuble>
             <li>
-                ${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
+                <a href="/appartements?adresse=${immeuble.adresse}&immeubleNom=${immeuble.nom}">${immeuble.nom}</a> - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
                 <form action="/deleteImmeuble" method="post">
                     <input type="hidden" name="Nom" value="${immeuble.getNom()}">
                     <input type="submit" value="Delete">

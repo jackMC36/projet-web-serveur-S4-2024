@@ -8,6 +8,7 @@
             var syndicatAdresse = document.getElementById("adresse").value;
             var SyndicatNom = document.getElementById("nom").value;
 
+<<<<<<< HEAD
             if(prenom = ""){
                 alert("Le prenom de la personne ne peut pas être vide");
                 return false;
@@ -20,6 +21,20 @@
 
             if (numTel == "") {
                 alert("Le numero de la personne ne peut pas être vide");
+=======
+            if(nom = ""){
+                alert("Le nom de l'immeuble ne peut pas être vide");
+                return false;
+            }
+
+            if(adresse == ""){
+                alert("L'adresse de l'immeuble ne peut pas être vide");
+                return false;
+            }
+
+            if (syndicatNom == "") {
+                alert("Le nom du syndicat ne peut pas être vide");
+>>>>>>> e7a52ad18f5359968a8e302a66f24bd1e5696fac
                 return false;
             }
         }

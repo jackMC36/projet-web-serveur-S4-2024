@@ -12,11 +12,11 @@
     <ul>
         <#list syndicats as syndicat>
             <li>
-                ${syndicat.nom} - ${syndicat.adresse} - $<#if syndicat.numeroTel??>
+                ${syndicat.nom} - ${syndicat.adresse} - <#if syndicat.numeroTel??>
     ${syndicat.numeroTel}
 <#else>
     Aucun Numéro
-</#if> - $<#if syndicat.adresse_mail??>
+</#if> - <#if syndicat.adresse_mail??>
     ${syndicat.adresse_mail}
 <#else>
     Aucune Adresse Mail
