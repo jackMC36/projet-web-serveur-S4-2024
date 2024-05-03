@@ -1,5 +1,6 @@
 package src.com.uca.dao;
 
+import src.com.uca.core.PersonneCore;
 import src.com.uca.entity.Personne;
 import src.com.uca.entity.Syndicat;
 
@@ -24,12 +25,20 @@ public class SyndicatDAO extends _Generic<Syndicat> {
                 entity.setAdresse(resultSet.getString("adresse"));
                 entity.setNumTel(resultSet.getInt("numeroTel"));
 
-                PersonneDAO personneDAO = new PersonneDAO();
-                Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
-                entity.setReferent(personne);
+                PersonneDAO pe = new PersonneDAO();
+
+                if(pe.isPersonneExist(resultSet.getInt("numeroTel"))){
+                    entity.setReferent(new PersonneDAO().getPersonneByNum(resultSet.getInt("numeroTel")));
+                }
+                else{
+                    Personne p = new Personne(resultSet.getString("nom_referent"), "", resultSet.getInt("numeroTel"));
+                    PersonneCore.savePersonne(p);
+                    entity.setReferent(new PersonneDAO().getPersonneByNum(resultSet.getInt("numeroTel")));
+                }
 
                 syndicats.add(entity);
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -48,6 +57,7 @@ public class SyndicatDAO extends _Generic<Syndicat> {
                 entity.setMail(resultSet.getString("adresse_mail"));
                 entity.setAdresse(resultSet.getString("adresse"));
                 entity.setNumTel(resultSet.getInt("numeroTel"));
+                entity.setReferent(new PersonneDAO().getPersonneByNum(resultSet.getInt("numeroTel")));
 
                 PersonneDAO personneDAO = new PersonneDAO();
                 Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
@@ -73,6 +83,7 @@ public class SyndicatDAO extends _Generic<Syndicat> {
                 entity.setMail(resultSet.getString("adresse_mail"));
                 entity.setAdresse(resultSet.getString("adresse"));
                 entity.setNumTel(resultSet.getInt("numeroTel"));
+                entity.setReferent(new PersonneDAO().getPersonneByNum(resultSet.getInt("numeroTel")));
 
                 PersonneDAO personneDAO = new PersonneDAO();
                 Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
@@ -95,6 +106,21 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         }
     }
 
+    public void saveSyndicat(String nom, String adresse, String prenomRef, String nomRef, int numReferent, int numTel, String mail) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Syndicat (nom, adresse_mail, adresse, numeroTel, nom_referent) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, nom);
+            preparedStatement.setString(2, mail);
+            preparedStatement.setString(3, adresse);
+            preparedStatement.setInt(4, numTel);
+            preparedStatement.setString(5, nomRef);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     @Override
     public Syndicat create(Syndicat obj) {
         try {
@@ -108,7 +134,7 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return obj;
+        return null;
     }
 
     @Override
@@ -117,8 +143,8 @@ public class SyndicatDAO extends _Generic<Syndicat> {
             PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE nom = ?");
             preparedStatement.setString(1, obj.getNom());
             preparedStatement.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
-}

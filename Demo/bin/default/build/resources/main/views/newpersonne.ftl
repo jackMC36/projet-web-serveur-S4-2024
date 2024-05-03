@@ -28,14 +28,14 @@
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
-    <h2>créer un nouvel immeuble:</h2>
-    <form action="/saveImmeuble" onsubmit="return validateForm()" method="post">
+    <h2>créer un nouvelle Personne:</h2>
+    <form action="/savePersonne" onsubmit="return validateForm()" method="post">
+        <label for="prenom">Prénom:</label><br>
+        <input type="text" id=">>Prenom" name="prenom"><br>
         <label for="nom">Nom:</label><br>
         <input type="text" id="nom" name="nom"><br>
-        <label for="adresse">Adresse:</label><br>
-        <input type="text" id="adresse" name="adresse"><br>
-        <label for="syndicatNom">Syndicat Nom:</label><br>
-        <input type="text" id="syndicatNom" name="syndicatNom"><br>
+        <label for="numTel">Numero de téléphone:</label><br>
+        <input type="text" id="numtel" name="numtel"><br>
         <input type="submit" value="Save">
     </form>
 </body>

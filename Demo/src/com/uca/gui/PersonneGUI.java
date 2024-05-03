@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 import src.com.uca.entity.*;
 import src.com.uca.core.*;
+import src.com.uca.dao.PersonneDAO;
 
 public class PersonneGUI {
 
@@ -61,6 +62,11 @@ public class PersonneGUI {
         personne.setNom(nom);
         personne.setPrenom(prenom);
         personne.setNumTel(numTel);
+        PersonneDAO p   = new PersonneDAO();
+
+        if(p.isPersonneExist(numTel)){
+            return "Erreur: La personne avec le numéro de téléphone " + numTel + " existe déjà";
+        }
         PersonneCore.savePersonne(personne);
         return getAllPersonnes();
     }

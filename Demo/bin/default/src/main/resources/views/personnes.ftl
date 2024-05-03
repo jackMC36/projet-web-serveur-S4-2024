@@ -10,20 +10,22 @@
     </form>
     <h2>Liste de Personnes:</h2>
     <ul>
-        <#list personnes as personne>
+        <#list personnes! as personne>
             <li>
-                ${personne.prenom} - ${personne.nom} - $<#if syndicat.numeroTel??>
-    ${syndicat.numeroTel}
+                ${personne.prenom} - ${personne.nom} - <#if personne.numeroTel??>
+    ${personne.numeroTel}
 <#else>
     Aucun Numéro
-
+</#if>
                 <form action="/deletePersonne" method="post">
-                    <input type="hidden" name="Nom" value="${personne.getNumTel()}">
+                    <input type="hidden" name="numeroTel" value="${personne.numeroTel}">
                     <input type="submit" value="Delete">
                 </form>
             </li>
         </#list>
-
     </ul>
+    <form action="/createPersonne" method="get">
+        <input type="submit" value="Créer une nouvelle Personne">
+    </form>
 </body>
 </html>

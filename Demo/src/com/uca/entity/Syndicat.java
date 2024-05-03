@@ -11,6 +11,14 @@ public class Syndicat {
         //ignored
     }
 
+    public Syndicat(String nom, String adresse, String prenomRef, String nomRef, int numTel, String mail) {
+        this.nom = nom;
+        this.adresse = adresse;
+        this.referent = new Personne(prenomRef, nomRef, numTel);
+        this.numTel = numTel;
+        this.mail = mail;
+    }
+
     public String getNom() {
         return this.nom;
     }

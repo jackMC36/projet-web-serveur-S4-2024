@@ -25,10 +25,22 @@ public class PersonneDAO extends _Generic<Personne> {
         return entities;
     }
 
+    public Boolean isPersonneExist(int num) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne WHERE numeroTel = ?");
+            preparedStatement.setInt(1, num);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            return resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public Personne getPersonneByNum(int numero) {
         Personne entity = null;
         try {
-            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne WHERE numTel = ? ORDER BY NOM ASC");
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne WHERE numeroTel = ? ORDER BY NOM ASC");
             preparedStatement.setInt(1, numero);
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet.next()) {

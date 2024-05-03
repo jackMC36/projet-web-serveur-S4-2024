@@ -20,10 +20,6 @@ public class StartServer {
             return ImmeubleGUI.getAllImmeubles();
         });
 
-        get("/appartements", (req, res) -> {
-            return AppartementGUI.getAllAppartementsByAdresse();
-        });
-
         post("/deleteImmeuble", (req, res) -> {
             return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
         });
@@ -36,13 +32,34 @@ public class StartServer {
             return ImmeubleGUI.saveImmeuble(req.queryParams("nom"), req.queryParams("adresse"), req.queryParams("syndicatNom"));
         });
 
+
+
+
+        get("/appartements", (req, res) -> {
+            return AppartementGUI.getAllAppartementsByAdresse();
+        });
+
+
+
+       
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();
+        });
+
+        get("/createSyndicat", (req, res) -> {
+            return SyndicatGUI.createSyndicat();
+        });
+
+        post("/saveSyndicat", (req, res) -> {
+            return SyndicatGUI.saveSyndicat(req.queryParams("nom"), req.queryParams("adresse"), req.queryParams("prenomRef"), req.queryParams("nomRef"), Integer.parseInt(req.queryParams("numTel")), req.queryParams("adresse_mail"));
         });
 
         post("/deleteSyndicat", (req, res) -> {
             return SyndicatGUI.deleteSyndicatByAdresse(req.queryParams("Adresse"));
         });
+
+
+
 
         get("/personnes", (req, res) -> {
             return PersonneGUI.getAllPersonnes();
@@ -53,7 +70,7 @@ public class StartServer {
         });
 
         post("/savePersonne", (req, res) -> {
-            return PersonneGUI.savePersonne(req.queryParams("nom"), req.queryParams("prenom"), Integer.parseInt(req.queryParams("numTel")));
+            return PersonneGUI.savePersonne(req.queryParams("prenom"), req.queryParams("nom"), Integer.parseInt(req.queryParams("numTel")));
         });
     }
 }

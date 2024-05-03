@@ -8,6 +8,12 @@ public class Personne {
     public Personne() {
         //ignored
     }
+
+    public Personne(String nom, String prenom, int numTel) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.numTel = numTel;
+    }
     
     
     

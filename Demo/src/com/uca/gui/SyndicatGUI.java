@@ -1,6 +1,5 @@
 package src.com.uca.gui;
 
-import src.com.uca.core.ImmeubleCore;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
@@ -45,5 +44,42 @@ public class SyndicatGUI {
     
         return output.toString();
     }
+
+    public static String createSyndicat() throws IOException, TemplateException {
+        Configuration configuration = _FreeMarkerInitializer.getContext();
+    
+        Map<String, Object> input = new HashMap<>();
+        input.put("personnes", PersonneCore.getAllPersonnes());
+    
+        Writer output = new StringWriter();
+        Template template = configuration.getTemplate("newsyndicat.ftl");
+        template.setOutputEncoding("UTF-8");
+        template.process(input, output);
+    
+        return output.toString();
+    }
+
+    public static String saveSyndicat(String nom, String adresse,String prenomRef, String nomRef, int numTel, String adresse_mail) throws IOException, TemplateException {
+    Configuration configuration = _FreeMarkerInitializer.getContext();
+
+    // Check if the Personne exists
+    Personne personne = PersonneCore.getPersonneByNum(numTel);
+    if (personne == null) {
+        // If the Personne doesn't exist, display an error message
+        return "Erreur: aucune personne n'a été trouvé sous la forme NOM = " + nomRef + " et NUMEROTEL = " + numTel + ". Veuillez vous relire. Veuillez ajouter la personne avant de créer un syndicat. (Voir l'onglet Personnes)";
+    }
+
+    SyndicatCore.saveSyndicat(nom, adresse, prenomRef, nomRef, numTel, adresse_mail);
+
+    Map<String, Object> input = new HashMap<>();
+    input.put("syndicats", SyndicatCore.getAllSyndicats());
+
+    Writer output = new StringWriter();
+    Template template = configuration.getTemplate("syndicats.ftl");
+    template.setOutputEncoding("UTF-8");
+    template.process(input, output);
+
+    return output.toString();
+}
     
 }

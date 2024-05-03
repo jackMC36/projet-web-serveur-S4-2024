@@ -39,11 +39,11 @@ public class ImmeubleController {
     }
 
     @PostMapping("/deleteImmeuble")
-    public String deleteImmeubleByNom(@RequestParam("Nom") String Nom) {
-        logger.info("deleteImmeubleByNom called with immeubleNom: {}", Nom);
+    public String deleteImmeubleByNom(@RequestParam("Nom") String nom) {
+        logger.info("deleteImmeubleByNom called with immeubleNom: {}", nom);
         
         ImmeubleDAO d = new ImmeubleDAO();
-        d.deleteImmeubleByNom(Nom);
+        d.deleteImmeubleByNom(nom);
     
         return "redirect:/immeubles";
     }

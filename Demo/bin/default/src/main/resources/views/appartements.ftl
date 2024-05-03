@@ -8,15 +8,8 @@
         <#list appartements as appartement>
             <li>
                 ${appartement.etage} - ${appartement.numero} - ${appartement.superficie} - ${appartement.estLoue} - ${appartement.adresse}
-                <form action="/deleteappartement" method="post">
-                    <input type="hidden" name="appartementId" value="${appartement.numero, appartement.adresse}">
-                    <input type="submit" value="Delete">
-                </form>
             </li>
         </#list>
     </ul>
-    <form action="/createappartement" method="get">
-        <input type="submit" value="Create New appartement">
-    </form>
 </body>
 </html>
