@@ -6,8 +6,17 @@
 <body xmlns="http://www.w3.org/1999/html">
     <ul>
         <#list immeubles as immeuble>
-            <li>${immeuble.nom} - ${immeuble.adresse} - ${immeuble.syndicat}</li>
+            <li>
+                ${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
+                <form action="/deleteImmeuble" method="post">
+                    <input type="hidden" name="immeubleId" value="${immeuble.nom}">
+                    <input type="submit" value="Delete">
+                </form>
+            </li>
         </#list>
     </ul>
+    <form action="/createImmeuble" method="get">
+        <input type="submit" value="Create New Immeuble">
+    </form>
 </body>
 </html>

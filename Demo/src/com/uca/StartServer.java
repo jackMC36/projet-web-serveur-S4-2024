@@ -19,5 +19,9 @@ public class StartServer {
         get("/immeubles", (req, res) -> {
             return ImmeubleGUI.getAllImmeubles();
         });
+
+        get("/appartements", (req, res) -> {
+            return AppartementGUI.getAllAppartementsByAdresse();
+        });
     }
 }

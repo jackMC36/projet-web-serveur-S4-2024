@@ -7,7 +7,7 @@ public class Appartement {
     private float superficie;
     String adresse;
     private ArrayList<Personne> listeOccupant;
-    private Boolean estLoue;
+    private int estLoue;
 
     public Appartement(){
         //ignored
@@ -45,19 +45,19 @@ public class Appartement {
         this.superficie = superficie;
     }
 
-    public ArrayList<Personne> getListeOccupant() {
+    public ArrayList<Personne> getListeOccupant() { //PAS UTILISE
         return this.listeOccupant;
     }
 
-    public void setListeOccupant(ArrayList<Personne> listeOccupant) {
+    public void setListeOccupant(ArrayList<Personne> listeOccupant) { //PAS UTILISE
         this.listeOccupant = listeOccupant;
     }
 
-    public Boolean getEstLoue() {
+    public int getEstLoue() {
         return this.estLoue;
     }
 
-    public void setEstLoue(Boolean estLoue) {
+    public void setEstLoue(int estLoue) {
         this.estLoue = estLoue;
     }
 
