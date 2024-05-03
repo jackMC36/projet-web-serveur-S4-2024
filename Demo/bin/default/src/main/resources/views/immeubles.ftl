@@ -14,14 +14,22 @@
             <li>
                 ${immeuble.nom} - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
                 <form action="/deleteImmeuble" method="post">
+<<<<<<< HEAD
+                    <input type="hidden" name="immeubleId" value="${immeuble.nom}">
+=======
                     <input type="hidden" name="Nom" value="${immeuble.getNom()}">
+>>>>>>> 5cdc075a4eb296895542d66ca65a07eff47463fe
                     <input type="submit" value="Delete">
                 </form>
             </li>
         </#list>
     </ul>
     <form action="/createImmeuble" method="get">
+<<<<<<< HEAD
+        <input type="submit" value="Create New Immeuble">
+=======
         <input type="submit" value="Créer un nouvel Immeuble">
+>>>>>>> 5cdc075a4eb296895542d66ca65a07eff47463fe
     </form>
 </body>
 </html>
