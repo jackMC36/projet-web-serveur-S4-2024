@@ -12,6 +12,30 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         //ignore
     }
 
+    public ArrayList<Syndicat> getAllSyndicats() {
+        ArrayList<Syndicat> syndicats = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Syndicat ORDER BY NOM ASC");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Syndicat entity = new Syndicat();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setMail(resultSet.getString("adresse_mail"));
+                entity.setAdresse(resultSet.getString("adresse"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+
+                PersonneDAO personneDAO = new PersonneDAO();
+                Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
+                entity.setReferent(personne);
+
+                syndicats.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return syndicats;
+    }
+
     public Syndicat getSyndicatByMail(String mail) {
         Syndicat entity = null;
         try {
@@ -61,14 +85,40 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         return entity;
     }
 
+    public void deleteSyndicatByAdresse(String adresse) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE adresse = ?");
+            preparedStatement.setString(1, adresse);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Syndicat create(Syndicat obj) {
-        //TODO !
-        return null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Syndicat (nom, adresse_mail, adresse, numeroTel, nom_referent) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.setString(2, obj.getMail());
+            preparedStatement.setString(3, obj.getAdresse());
+            preparedStatement.setInt(4, obj.getNumTel());
+            preparedStatement.setString(5, obj.getReferent().getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     @Override
     public void delete(Syndicat obj) {
-        //TODO !
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE nom = ?");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

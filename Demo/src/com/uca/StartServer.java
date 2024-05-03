@@ -20,8 +20,33 @@ public class StartServer {
             return ImmeubleGUI.getAllImmeubles();
         });
 
+<<<<<<< HEAD
         get("/appartements", (req, res) -> {
             return AppartementGUI.getAllAppartementsByAdresse();
+=======
+        post("/deleteImmeuble", (req, res) -> {
+            return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
+        });
+
+        get("/createImmeuble", (req, res) -> {
+            return ImmeubleGUI.createImmeuble();
+        });
+
+        post("/saveImmeuble", (req, res) -> {
+            return ImmeubleGUI.saveImmeuble(req.queryParams("nom"), req.queryParams("adresse"), req.queryParams("syndicatNom"));
+        });
+
+        get("/syndicats", (req, res) -> {
+            return SyndicatGUI.getAllSyndicats();
+        });
+
+        post("/deleteSyndicat", (req, res) -> {
+            return SyndicatGUI.deleteSyndicatByAdresse(req.queryParams("Adresse"));
+        });
+
+        get("/personnes", (req, res) -> {
+            return PersonneGUI.getAllPersonnes();
+>>>>>>> 5cdc075a4eb296895542d66ca65a07eff47463fe
         });
     }
 }
