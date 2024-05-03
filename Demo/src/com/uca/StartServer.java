@@ -21,7 +21,7 @@ public class StartServer {
         });
 
         get("/appartements", (req, res) -> {
-            return AppartementGUI.getAllAppartementsByAdresse();
+            return AppartementGUI.getAllAppartementsByAdresse(req);
         });
 
         post("/deleteImmeuble", (req, res) -> {

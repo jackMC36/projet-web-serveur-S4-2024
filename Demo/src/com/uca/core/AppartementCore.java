@@ -7,8 +7,8 @@ import java.util.ArrayList;
 
 public class AppartementCore {
 
-    public static ArrayList<Appartement> getAllAppartementsByAdresse() {
-        return new AppartementDAO().getAllAppartementsByAdresse("1 rue de la paix"); //modifié pour que l'adresse ne soit pas 'statique' mais qu'elle puisse être récupéré ailleurs.
+    public static ArrayList<Appartement> getAllAppartementsByAdresse(String adresse) {
+        return new AppartementDAO().getAllAppartementsByAdresse(adresse); //modifié pour que l'adresse ne soit pas 'statique' mais qu'elle puisse être récupéré ailleurs.
     }
 
 }
