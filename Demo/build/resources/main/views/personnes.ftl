@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <#ftl encoding="utf-8">
 <html>
 <head>
@@ -31,4 +29,3 @@
     </form>
 </body>
 </html>
->>>>>>> 5cdc075a4eb296895542d66ca65a07eff47463fe

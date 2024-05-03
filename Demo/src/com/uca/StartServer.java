@@ -20,10 +20,10 @@ public class StartServer {
             return ImmeubleGUI.getAllImmeubles();
         });
 
-<<<<<<< HEAD
         get("/appartements", (req, res) -> {
             return AppartementGUI.getAllAppartementsByAdresse();
-=======
+        });
+
         post("/deleteImmeuble", (req, res) -> {
             return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
         });
@@ -46,7 +46,6 @@ public class StartServer {
 
         get("/personnes", (req, res) -> {
             return PersonneGUI.getAllPersonnes();
->>>>>>> 5cdc075a4eb296895542d66ca65a07eff47463fe
         });
 
         get("/createPersonne", (req, res) -> {
