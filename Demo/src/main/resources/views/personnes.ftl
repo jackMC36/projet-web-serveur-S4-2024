@@ -24,5 +24,8 @@
             </li>
         </#list>
     </ul>
+    <form action="/createPersonne" method="get">
+        <input type="submit" value="Créer une nouvelle Personne">
+    </form>
 </body>
 </html>

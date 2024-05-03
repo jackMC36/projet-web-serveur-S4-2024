@@ -47,5 +47,13 @@ public class StartServer {
         get("/personnes", (req, res) -> {
             return PersonneGUI.getAllPersonnes();
         });
+
+        get("/createPersonne", (req, res) -> {
+            return PersonneGUI.createPersonne();
+        });
+
+        post("/savePersonne", (req, res) -> {
+            return PersonneGUI.savePersonne(req.queryParams("nom"), req.queryParams("prenom"), Integer.parseInt(req.queryParams("numTel")));
+        });
     }
 }

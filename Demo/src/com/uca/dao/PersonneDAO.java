@@ -82,7 +82,7 @@ public class PersonneDAO extends _Generic<Personne> {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return obj;
+        return null;
     }
 
 
