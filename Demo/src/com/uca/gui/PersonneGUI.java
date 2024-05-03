@@ -13,36 +13,36 @@ import java.util.Map;
 import src.com.uca.entity.*;
 import src.com.uca.core.*;
 
-public class SyndicatGUI {
+public class PersonneGUI {
 
-    public static String getAllSyndicats() throws IOException, TemplateException {
+    public static String getAllPersonnes() throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
 
         Map<String, Object> input = new HashMap<>();
 
-        input.put("syndicats", SyndicatCore.getAllSyndicats());
+        input.put("Personnes", PersonneCore.getAllPersonnes());
 
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("syndicats.ftl");
+        Template template = configuration.getTemplate("personnes.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
         
         return output.toString();
     }
 
-    public static String deleteSyndicatByAdresse(String adresse) throws IOException, TemplateException {
+    public static String deletePersonneByNum(int num) throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
-    
-        SyndicatCore.deleteSyndicatByAdresse(adresse);
-    
+        
+        PersonneCore.deletePersonneByNum(num);
+        
         Map<String, Object> input = new HashMap<>();
-        input.put("syndicats", SyndicatCore.getAllSyndicats());
+        input.put("Personnes", PersonneCore.getAllPersonnes());
     
         Writer output = new StringWriter();
-        Template template = configuration.getTemplate("syndicats.ftl");
+        Template template = configuration.getTemplate("personnes.ftl");
         template.setOutputEncoding("UTF-8");
         template.process(input, output);
-    
+        
         return output.toString();
     }
     

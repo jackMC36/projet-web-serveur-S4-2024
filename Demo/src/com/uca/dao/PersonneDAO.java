@@ -7,7 +7,25 @@ import java.util.ArrayList;
 
 public class PersonneDAO extends _Generic<Personne> {
 
-    public Personne getPersonneByNumero(int numero) {
+    public ArrayList<Personne> getAllPersonnes() {
+        ArrayList<Personne> entities = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne ORDER BY NOM ASC");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Personne entity = new Personne();
+                entity.setNom(resultSet.getString("nom"));
+                entity.setPrenom(resultSet.getString("prenom"));
+                entity.setNumTel(resultSet.getInt("numeroTel"));
+                entities.add(entity);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return entities;
+    }
+
+    public Personne getPersonneByNum(int numero) {
         Personne entity = null;
         try {
             PreparedStatement preparedStatement = this.connect.prepareStatement("SELECT * FROM Personne WHERE numTel = ? ORDER BY NOM ASC");
@@ -41,6 +59,16 @@ public class PersonneDAO extends _Generic<Personne> {
             e.printStackTrace();
         }
         return entity;
+    }
+
+    public void deletePersonneByNum(int num){
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Personne WHERE numeroTel = ?");
+            preparedStatement.setInt(1, num);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override

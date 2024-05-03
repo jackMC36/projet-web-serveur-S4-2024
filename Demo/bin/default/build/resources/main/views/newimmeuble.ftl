@@ -5,19 +5,6 @@
     <script>
         function validateForm() {
             var syndicatNom = document.getElementById("syndicatNom").value;
-            var syndicatAdresse = document.getElementById("adresse").value;
-            var SyndicatNom = document.getElementById("nom").value;
-
-            if(nom = ""){
-                alert("Le nom de l'immeuble ne peut pas être vide");
-                return false;
-            }
-
-            if(adresse == ""){
-                alert("L'adresse de l'immeuble ne peut pas être vide");
-                return false;
-            }
-
             if (syndicatNom == "") {
                 alert("Le nom du syndicat ne peut pas être vide");
                 return false;

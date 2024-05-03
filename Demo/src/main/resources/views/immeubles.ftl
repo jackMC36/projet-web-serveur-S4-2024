@@ -8,6 +8,9 @@
     <form action="/syndicats" method="get">
         <input type="submit" value="Syndicats">
     </form>
+    <form action="/personnes" method="get">
+        <input type="submit" value="Personnes">
+    </form>
     <h2>List d'Immeubles</h2>
     <ul>
         <#list immeubles as immeuble>

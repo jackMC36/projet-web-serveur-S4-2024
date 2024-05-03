@@ -35,5 +35,13 @@ public class StartServer {
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();
         });
+
+        post("/deleteSyndicat", (req, res) -> {
+            return SyndicatGUI.deleteSyndicatByAdresse(req.queryParams("Adresse"));
+        });
+
+        get("/personnes", (req, res) -> {
+            return PersonneGUI.getAllPersonnes();
+        });
     }
 }

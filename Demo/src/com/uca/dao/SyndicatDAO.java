@@ -85,14 +85,40 @@ public class SyndicatDAO extends _Generic<Syndicat> {
         return entity;
     }
 
+    public void deleteSyndicatByAdresse(String adresse) {
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE adresse = ?");
+            preparedStatement.setString(1, adresse);
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Syndicat create(Syndicat obj) {
-        //TODO !
-        return null;
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Syndicat (nom, adresse_mail, adresse, numeroTel, nom_referent) VALUES (?, ?, ?, ?, ?)");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.setString(2, obj.getMail());
+            preparedStatement.setString(3, obj.getAdresse());
+            preparedStatement.setInt(4, obj.getNumTel());
+            preparedStatement.setString(5, obj.getReferent().getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return obj;
     }
 
     @Override
     public void delete(Syndicat obj) {
-        //TODO !
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE nom = ?");
+            preparedStatement.setString(1, obj.getNom());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -87,12 +87,16 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
             PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Immeuble (nom, adresse, syndicat) VALUES (?, ?, ?);");
             preparedStatement.setString(1, obj.getNom());
             preparedStatement.setString(2, obj.getAdresse());
-            preparedStatement.setString(3, obj.getSyndicatNom());
+            if("".equals(obj.getSyndicatNom())) {
+                throw new IllegalArgumentException("SyndicatNom cannot be empty");
+            } else {
+                preparedStatement.setString(3, obj.getSyndicatNom());
+            }
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    return null;
+        return null;
     }
 
     @Override

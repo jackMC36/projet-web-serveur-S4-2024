@@ -21,8 +21,13 @@
 <#else>
     Aucune Adresse Mail
 </#if>
+                <form action="/deleteSyndicat" method="post">
+                    <input type="hidden" name="Nom" value="${syndicat.getAdresse()}">
+                    <input type="submit" value="Delete">
+                </form>
             </li>
         </#list>
+
     </ul>
 </body>
 </html>

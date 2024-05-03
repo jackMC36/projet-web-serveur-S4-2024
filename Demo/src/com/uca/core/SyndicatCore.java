@@ -14,6 +14,10 @@ public class SyndicatCore {
         return new SyndicatDAO().getSyndicatByNom(nom);
     }
 
+    public static void deleteSyndicatByAdresse(String adresse) {
+        new SyndicatDAO().deleteSyndicatByAdresse(adresse);
+    }
+
     /* public static void deleteSyndicatByNum(int num)) {
         new SyndicatDAO().deleteSyndicatByNum(num);
     }
