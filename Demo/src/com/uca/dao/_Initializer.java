@@ -12,7 +12,7 @@ public class _Initializer {
 
             PreparedStatement statement;
 
-            /* INITIALISATION        
+            /* INITIALISATION          
             statement = connection.prepareStatement("DROP TABLE IF EXISTS Occupation;");
             statement.executeUpdate();
             

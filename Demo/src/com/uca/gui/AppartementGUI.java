@@ -18,9 +18,11 @@ public class AppartementGUI {
     public static String getAllAppartementsByAdresse(Request request) throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
         String adresse = request.queryParams("adresse");
+        String immeubleNom = request.queryParams("immeubleNom");
 
         Map<String, Object> input = new HashMap<>();
 
+        input.put("immeubleNom", immeubleNom);
         input.put("appartements", AppartementCore.getAllAppartementsByAdresse(adresse));
 
         Writer output = new StringWriter();

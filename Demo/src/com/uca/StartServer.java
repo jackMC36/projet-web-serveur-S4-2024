@@ -20,10 +20,6 @@ public class StartServer {
             return ImmeubleGUI.getAllImmeubles();
         });
 
-        get("/appartements", (req, res) -> {
-            return AppartementGUI.getAllAppartementsByAdresse(req);
-        });
-
         post("/deleteImmeuble", (req, res) -> {
             return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
         });
@@ -35,6 +31,16 @@ public class StartServer {
         post("/saveImmeuble", (req, res) -> {
             return ImmeubleGUI.saveImmeuble(req.queryParams("nom"), req.queryParams("adresse"), req.queryParams("syndicatNom"));
         });
+        
+        get("/appartements", (req, res) -> {
+            return AppartementGUI.getAllAppartementsByAdresse(req);
+        });
+
+        /*
+        post("/deleteAppartement", (req, res) -> {
+            return AppartementGUI.deleteAppartement(req.queryParams("Numero","Adresse"));
+        });
+        */
 
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();

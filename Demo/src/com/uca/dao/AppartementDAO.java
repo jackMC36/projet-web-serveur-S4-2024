@@ -18,7 +18,6 @@ public class AppartementDAO extends _Generic<Appartement> {
                 Appartement entity = new Appartement();
                 entity.setEtage(resultSet.getInt("etage"));
                 entity.setNumero(resultSet.getInt("numero"));
-                //entity.setAdresse(adresse);
                 entity.setAdresse(resultSet.getString("adresse"));
                 entity.setSuperficie(resultSet.getFloat("superficie"));
                 entity.setEstLoue(resultSet.getInt("estLoue"));
@@ -51,7 +50,26 @@ public class AppartementDAO extends _Generic<Appartement> {
 
     @Override
     public void delete(Appartement obj) {
-        //TODO !
+        /*
+        try {
+            PreparedStatement preparedStatement1 = this.connect.prepareStatement("SELECT adresse FROM Immeuble WHERE nom = ?;");
+            preparedStatement1.setString(1, nom);
+            ResultSet resultSet = preparedStatement1.executeQuery();
+            if (resultSet.next()) {
+                String adresse = resultSet.getString("adresse");
+    
+                PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM Appartement WHERE adresse = ?;");
+                preparedStatement2.setString(1, adresse);
+                preparedStatement2.executeUpdate();
+    
+                PreparedStatement preparedStatement3 = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
+                preparedStatement3.setString(1, nom);
+                preparedStatement3.executeUpdate();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        */
     }
 
 }
