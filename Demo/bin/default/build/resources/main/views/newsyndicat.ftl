@@ -1,7 +1,7 @@
 <#ftl encoding="utf-8">
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="src/main/resources/static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function validateFrenchPhoneNumber(num) {
             var regex = /^(0|\+33)[1-9](\d{2}){4}$/;
@@ -43,25 +43,37 @@
     <h1>Valet Immobillier Co.</h1>
     <h2>créer un nouveau Syndicat:</h2>
     <form action="/saveSyndicat" onsubmit="return validateForm()" method="post">
-        <label for="nom">Nom:</label><br>
-        <input type="text" id="nom" name="nom"><br>
+        <p>
+            <label for="nom">Nom:</label><br>
+            <input type="text" id="nom" name="nom"><br>
+        </p>
 
-        <label for="adresse">Adresse:</label><br>
-        <input type="text" id="adresse" name="adresse"><br>
+        <p>
+            <label for="adresse">Adresse:</label><br>
+            <input type="text" id="adresse" name="adresse"><br>
+        </p>
 
-        <label for="prenomRef">Prénom de la personne référente:</label><br>
-        <input type="text" id="prenomRef" name="prenomRef"><br>
+        <p>
+            <label for="prenomRef">Prénom de la personne référente:</label><br>
+            <input type="text" id="prenomRef" name="prenomRef"><br>
+        </p>
 
-        <label for="nomRef">Nom de la personne référente:</label><br>
-        <input type="text" id="nomRef" name="nomRef"><br>
+        <p>
+            <label for="nomRef">Nom de la personne référente:</label><br>
+            <input type="text" id="nomRef" name="nomRef"><br>
+        </p>
 
-        <label for="numTel">Numero de téléphone:</label><br>
-        <input type="text" id="numTel" name="numTel"><br>
+        <p>
+            <label for="numTel">Numero de téléphone:</label><br>
+            <input type="text" id="numTel" name="numTel"><br>
+        </p>
 
-        <label for="adresse_mail">Adresse mail:</label><br>
-        <input type="text" id="adresse_mail" name="adresse_mail"><br>
+        <p>
+            <label for="adresse_mail">Adresse mail:</label><br>
+            <input type="text" id="adresse_mail" name="adresse_mail"><br>
+        </p>
         
         <input type="submit" value="Save">
-    </form>s
+    </form>
 </body>
 </html>
