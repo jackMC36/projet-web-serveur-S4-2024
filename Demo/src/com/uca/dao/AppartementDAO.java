@@ -15,12 +15,7 @@ public class AppartementDAO extends _Generic<Appartement> {
             preparedStatement.setString(1, adresse);
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next()) {
-                Appartement entity = new Appartement();
-                entity.setEtage(resultSet.getInt("etage"));
-                entity.setNumero(resultSet.getInt("numero"));
-                entity.setAdresse(resultSet.getString("adresse"));
-                entity.setSuperficie(resultSet.getFloat("superficie"));
-                entity.setEstLoue(resultSet.getInt("estLoue"));
+                Appartement entity = new Appartement(resultSet.getInt("etage"), resultSet.getInt("numero"), resultSet.getFloat("superficie"), resultSet.getString("adresse"), resultSet.getInt("estLoue"));
                 entities.add(entity);
             }
             
@@ -42,9 +37,30 @@ public class AppartementDAO extends _Generic<Appartement> {
         return entities;
     }
 
+    public void deleteAppartement(int numero, String adresse) {
+        try {
+            PreparedStatement preparedStatement1 = this.connect.prepareStatement("DELETE FROM appartement WHERE numero = ? AND adresse = ?;");
+            preparedStatement1.setInt(1, numero);
+            preparedStatement1.setString(2, adresse);
+            preparedStatement1.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public Appartement create(Appartement obj) {
-        //TODO !
+        try {
+            PreparedStatement preparedStatement = this.connect.prepareStatement("INSERT INTO Appartement(etage, numero, superficie, estLoue, adresse) VALUES (?, ?, ?, ?, ?);");
+            preparedStatement.setInt(1, obj.getEtage());
+            preparedStatement.setInt(2, obj.getNumero());
+            preparedStatement.setFloat(3, obj.getSuperficie());
+            preparedStatement.setInt(4, obj.getEstLoue());
+            preparedStatement.setString(5, obj.getAdresse());
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
