@@ -36,11 +36,23 @@ public class StartServer {
             return AppartementGUI.getAllAppartementsByAdresse(req);
         });
 
-        /*
         post("/deleteAppartement", (req, res) -> {
+<<<<<<< HEAD
             return AppartementGUI.deleteAppartement(req.queryParams("Numero","Adresse"));
         });
         */
+=======
+            return AppartementGUI.deleteAppartement(req);
+        });
+
+        get("/createAppartement", (req, res) -> {
+            return AppartementGUI.createAppartement(req);
+        });
+
+        post("/saveAppartement", (req, res) -> {
+            return AppartementGUI.saveAppartement(req);
+        });
+>>>>>>> 9a5cd6125b9be32a182c15696f870ce8b679c2c1
        
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();

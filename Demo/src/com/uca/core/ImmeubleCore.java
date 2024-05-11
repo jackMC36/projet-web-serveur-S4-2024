@@ -18,7 +18,4 @@ public class ImmeubleCore {
     public static void saveImmeuble(Immeuble immeuble) {
         new ImmeubleDAO().create(immeuble);
     }
-
-    
-
 }

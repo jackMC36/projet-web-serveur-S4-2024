@@ -1,12 +1,12 @@
 <#ftl encoding="utf-8">
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="src/main/resources/static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function validateForm() {
-            var syndicatNom = document.getElementById("syndicatNom").value;
-            var syndicatAdresse = document.getElementById("adresse").value;
-            var SyndicatNom = document.getElementById("nom").value;
+            var nom = document.getElementById("nom").value;
+            var adresse = document.getElementById("adresse").value;
+            var SyndicatNom = document.getElementById("syndicatNom").value;
 
             if(nom = ""){
                 alert("Le nom de l'immeuble ne peut pas être vide");
@@ -30,12 +30,21 @@
     <h1>Valet Immobillier Co.</h1>
     <h2>Créer un nouvel immeuble:</h2>
     <form action="/saveImmeuble" onsubmit="return validateForm()" method="post">
-        <label for="nom">Nom:</label><br>
-        <input type="text" id="nom" name="nom"><br>
-        <label for="adresse">Adresse:</label><br>
-        <input type="text" id="adresse" name="adresse"><br>
-        <label for="syndicatNom">Syndicat Nom:</label><br>
-        <input type="text" id="syndicatNom" name="syndicatNom"><br>
+        <p>
+            <label for="nom">Nom du bâtiment :</label><br>
+            <input type="text" id="nom" name="nom"><br>
+        </p>
+
+        <p>
+            <label for="adresse">Adresse :</label><br>
+            <input type="text" id="adresse" name="adresse"><br>
+        </p>
+
+        <p>
+            <label for="syndicatNom">Nom du syndicat :</label><br>
+            <input type="text" id="syndicatNom" name="syndicatNom"><br>
+        </p>
+
         <input type="submit" value="Save">
     </form>
 </body>

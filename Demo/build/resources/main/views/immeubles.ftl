@@ -1,10 +1,13 @@
 <#ftl encoding="utf-8">
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="src/main/resources/static/style.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
+    <form action="/connexion" method="get">
+        <input type="submit" value="Connexion">
+    </form>
     <form action="/syndicats" method="get">
         <input type="submit" value="Syndicats">
     </form>
@@ -12,19 +15,31 @@
         <input type="submit" value="Personnes">
     </form>
     <h2>List d'Immeubles</h2>
-    <ul>
+    <table>
+        <tr>
+            <th>Nom du bâtiment</th>
+            <th>Adresse</th>
+            <th>Nom du syndicat</th>
+            <th></th>
+        </tr>
         <#list immeubles as immeuble>
-            <li>
-                <a href="/appartements?adresse=${immeuble.adresse}&immeubleNom=${immeuble.nom}">${immeuble.nom}</a> - ${immeuble.adresse} - ${immeuble.getSyndicatNom()}
+          <tr>
+            <td><a href="/appartements?adresse=${immeuble.adresse}&immeubleNom=${immeuble.nom}">${immeuble.nom}</a></td>
+            <td>${immeuble.adresse}</td>
+            <td>${immeuble.getSyndicatNom()}</td>
+            <td>
                 <form action="/deleteImmeuble" method="post">
                     <input type="hidden" name="Nom" value="${immeuble.getNom()}">
                     <input type="submit" value="Delete">
                 </form>
-            </li>
+            </td>                
+          </tr>
         </#list>
-    </ul>
-    <form action="/createImmeuble" method="get">
+    </table>
+    <p>
+      <form action="/createImmeuble" method="get">
         <input type="submit" value="Créer un nouvel Immeuble">
-    </form>
+      </form>
+    </p>
 </body>
 </html>
