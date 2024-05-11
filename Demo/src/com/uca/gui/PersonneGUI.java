@@ -20,7 +20,7 @@ public class PersonneGUI {
 
         Map<String, Object> input = new HashMap<>();
 
-        input.put("Personnes", PersonneCore.getAllPersonnes());
+        input.put("personnes", PersonneCore.getAllPersonnes());
 
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("personnes.ftl");
@@ -36,7 +36,7 @@ public class PersonneGUI {
         PersonneCore.deletePersonneByNum(num);
         
         Map<String, Object> input = new HashMap<>();
-        input.put("Personnes", PersonneCore.getAllPersonnes());
+        input.put("personnes", PersonneCore.getAllPersonnes());
         
         Writer output = new StringWriter();
         Template template = configuration.getTemplate("personnes.ftl");
@@ -57,7 +57,7 @@ public class PersonneGUI {
     }
 
     public static String savePersonne(String prenom,  String nom, int numTel) throws IOException, TemplateException {
-        // Create a new Immeuble with the submitted values and save it to the database
+
         Personne personne = new Personne();
         personne.setNom(nom);
         personne.setPrenom(prenom);

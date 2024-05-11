@@ -12,15 +12,20 @@
     <ul>
         <#list syndicats as syndicat>
             <li>
-                ${syndicat.nom} - ${syndicat.adresse} - $<#if syndicat.numeroTel??>
+                ${syndicat.nom} - ${syndicat.adresse} - <#if syndicat.numeroTel??>
     ${syndicat.numeroTel}
 <#else>
     Aucun Numéro
-</#if> - $<#if syndicat.adresse_mail??>
+</#if> - <#if syndicat.adresse_mail??>
     ${syndicat.adresse_mail}
 <#else>
     Aucune Adresse Mail
+</#if> - <#if syndicat.nom_referent??>
+    ${syndicat.nom_referent}
+<#else>
+    Aucun nom de référent
 </#if>
+
                 <form action="/deleteSyndicat" method="post">
                     <input type="hidden" name="Nom" value="${syndicat.getAdresse()}">
                     <input type="submit" value="Delete">
@@ -29,5 +34,8 @@
         </#list>
 
     </ul>
+    <form action="/createSyndicat" method="get">
+        <input type="submit" value="Créer un nouvel Syndicat">
+    </form>
 </body>
 </html>

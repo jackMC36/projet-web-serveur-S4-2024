@@ -41,16 +41,6 @@ public class StartServer {
             return AppartementGUI.deleteAppartement(req.queryParams("Numero","Adresse"));
         });
         */
-
-
-
-
-        get("/appartements", (req, res) -> {
-            return AppartementGUI.getAllAppartementsByAdresse();
-        });
-
-
-
        
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();

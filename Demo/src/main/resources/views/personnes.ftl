@@ -12,13 +12,13 @@
     <ul>
         <#list personnes! as personne>
             <li>
-                ${personne.prenom} - ${personne.nom} - <#if personne.numeroTel??>
-    ${personne.numeroTel}
+                ${personne.getPrenom()} - ${personne.getNom()} - <#if personne.getNumTel()??>
+    ${personne.numTel}
 <#else>
     Aucun Numéro
 </#if>
                 <form action="/deletePersonne" method="post">
-                    <input type="hidden" name="numeroTel" value="${personne.numeroTel}">
+                    <input type="hidden" name="numTel" value="${personne.getNumTel()}">
                     <input type="submit" value="Delete">
                 </form>
             </li>
