@@ -1,0 +1,124 @@
+\documentclass[french]{article}
+\usepackage{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Projet Web Serveur - Rapport sur la réalisation d'un système de gestion d'un parc immobilier}
+\author{Killian GALFRE - - VEYRET et Jacques KOZIK}
+\date{Du 28 mars au 12 mai 2024}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\begin{abstract}
+Ce projet réalisé au cours des dernières semaines a consisté en la réalisation d'un site permettant de gérer un parc immobilier. Ce rapport contient un bref résumé de l'architecture de notre site.
+\end{abstract}
+
+
+\section{Introduction : Description général du projet}
+Ce projet à été réalisé principalement en langage Java. Nous avons également utilisé du ftl pour réaliser nos templates et du H2 pour la gestion de notre base de données. Par ailleurs, il fait également appel à d'autres logiciels tel que Gitlab et son espace de travail partagé, ou encore le logiciel \LaTeX \space qui nous permet de rédiger ce rapport. Ce projet comporte plusieurs documents :
+\begin{enumerate}
+\item Le \textbf{code source} du projet réparti sur plusieurs fichiers .class
+\item Les \textbf{templates} de nos pages .ftl
+\item Un \textbf{rapport} sur le projet \textit{GALFREVEYRET\_KOZIK.pdf} fait à partir de \LaTeX \\
+\end{enumerate}
+
+\noindent\textbf{! Attention !} Nous sommes conscient que certaines fonctionnalités comme la possibilité de se connecter / créer un compte et la possibilité d'avoir accès à des statistiques n'ont pas ou seulement partiellement étaient implémentées. Cela est dû à un manque de temps puisque nous avions nos examens à préparer en même temps. Bien que cela ne soit pas une excuse en soi, nous tenions à le préciser. 
+
+\section{Réponses au TP1}
+\underline{Question 1 :} Quelles sont les écrans (interfaces) qui vous semblent intéressantes à afficher aux utilisateurs ? \\ \\
+Voici les érans à afficher :
+\begin{itemize}
+\item Liste des appartements d'un propriétaire / locataire
+\item Liste des immeubles / syndicats / personnes
+\item Liste des appartements par immeuble et des occupants par appartement
+\item Création d'un appart / immeuble / syndicat / personne
+\item Fiche "Identité" (pour une personne)
+\item Page de connexion / inscription
+\item Page de contact \\
+\end{itemize}
+
+\underline{Question 2 :} Quelles vont être les principales classes de votre application ? \\ \\
+Voici les principales classes de notre application :
+\begin{itemize}
+\item Immeuble
+\item Syndicat
+\item Appartement
+\item Personne
+\item Occupation \\
+\end{itemize}
+
+\underline{Question 3 :} Quelles vont être les tables de votre base de données ? \\ \\
+Voici les tables de notre base de donnée :
+\begin{itemize}
+\item Immeuble : nom, adresse, syndicat (FK vers syndicat\footnote{FK = Foreign Key})
+\item Syndicat : nomSyndic, adresse, nomReferent (FK vers Personne), numeroTel (FK vers Personne), adresseMail
+\item Appartement : etage, numero, superficie, estLoue, adresse (FK vers immeuble)
+\item Personne : nom, prenom, numTel
+\item Occupation (table de jointure entre Appartement et Personne) : numero (FK vers Personne), statut (Locataire / Propriétaire), numAppartement (FK vers Appartement), adresseAppartement (FK vers Appartement) \\
+\end{itemize}
+
+\underline{Question 4 :} Quelles solutions technologiques envisagez vous ? \\ \\
+Voici les solutions technologiques utilisées pour ce projet :
+\begin{itemize}
+\item Java
+\item Spark Framework pour la gestion des requêtes HTTP et des routes
+\item Base de données (H2)
+\item FreeMarker (FTL) pour les templates 
+\item HTML/CSS pour le front-end
+\end{itemize}
+
+\section{Design URI de notre application}
+\noindent \textbf{Connexion}
+\begin{itemize}
+\item \textbf{GET /connexion} va afficher la page de connexion
+\item \textbf{POST /connexion} permet de se connecter \\
+\end{itemize}
+
+\noindent \textbf{Inscription}
+\begin{itemize}
+\item \textbf{GET /inscription} va afficher la page d'inscription
+\item \textbf{POST /inscription} permet se s'inscrire \\
+\end{itemize}
+
+\noindent \textbf{Immeuble}
+\begin{itemize}
+\item \textbf{GET /immeubles} va afficher la page listant tout les immeubles
+\item \textbf{GET /createImmeuble} va afficher le formulaire de création d'un nouvel immeuble
+\item \textbf{POST /saveImmeuble} va créer un nouvel immeuble
+\item \textbf{POST /deleteImmeuble} va supprimer un immeuble existant (et tout les appartements qui se trouvent dedans) \\
+\end{itemize}
+
+\noindent \textbf{Appartement}
+\begin{itemize}
+\item \textbf{GET /appartements} va afficher la page listant tout les appartements d'un immeuble
+\item \textbf{GET /createAppartement} va afficher le formulaire de création d'un nouvel appartement
+\item \textbf{POST /saveAppartement} va créer un nouvel appartement
+\item \textbf{POST /deleteAppartement} va supprimer un appartement existant \\
+\end{itemize}
+
+\noindent \textbf{Syndicat}
+\begin{itemize}
+\item \textbf{GET /syndicats} va afficher la page listant tout les syndicats
+\item \textbf{GET /createSyndicat} va afficher le formulaire de création d'un nouveau syndicat
+\item \textbf{POST /saveSyndicat} va créer un nouveau syndicat
+\item \textbf{POST /deleteSyndicat} va supprimer un syndicat existant \\
+\end{itemize}
+
+\noindent \textbf{Personnes}
+\begin{itemize}
+\item \textbf{GET /personnes} va afficher la page listant toutes les personnes
+\item \textbf{GET /createPersonne} va afficher le formulaire de création d'une nouvelle personne
+\item \textbf{POST /savePersonne} va créer une nouvelle personne
+\item \textbf{POST /deletePersonne} va supprimer une personne existante \\
+\end{itemize}
+
+\noindent \textbf{Statistiques}
+\begin{itemize}
+\item \textbf{GET /statsParc} va afficher la page permettant de consulter les statistiques d'un parc immobilier
+\item \textbf{GET /stats} va afficher la page permettant de consulter les statistiques d'un immeuble \\
+\end{itemize}
+
+\end{document}
