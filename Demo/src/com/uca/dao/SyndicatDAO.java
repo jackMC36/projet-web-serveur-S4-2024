@@ -139,12 +139,6 @@ public class SyndicatDAO extends _Generic<Syndicat> {
 
     @Override
     public void delete(Syndicat obj) {
-        try {
-            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM Syndicat WHERE nom = ?");
-            preparedStatement.setString(1, obj.getNom());
-            preparedStatement.executeUpdate();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
+        // nous n'utilisons pas cette méthode pour notre suppression mais nous sommes obligés de la définir
     }
+}

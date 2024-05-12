@@ -56,10 +56,8 @@ public class ImmeubleGUI {
     }
 
     public static String saveImmeuble(String nom, String adresse, String syndicatNom) throws IOException, TemplateException {
-        // Create a new Immeuble with the submitted values and save it to the database
         Syndicat syndicat = SyndicatCore.getSyndicatByNom(syndicatNom);
         ImmeubleCore.saveImmeuble(new Immeuble(nom, adresse, syndicat));
-        // Redirect the user to the list of immeubles
         return getAllImmeubles();
     }
 
