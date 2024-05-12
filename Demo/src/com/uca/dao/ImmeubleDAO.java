@@ -23,17 +23,11 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
                 SyndicatDAO syndicatDAO = new SyndicatDAO();
                 Syndicat syndicat = syndicatDAO.getSyndicatByNom(resultSet.getString("syndicat"));
                 entity.setSyndicat(syndicat);
-
-
-
-    
                 entities.add(entity);
-                
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    
         return entities;
     }
 
@@ -52,7 +46,6 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
                 Syndicat syndicat = syndicatDAO.getSyndicatByNom(resultSet.getString("syndicat"));
                 entity.setSyndicat(syndicat);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }

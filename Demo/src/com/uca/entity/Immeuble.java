@@ -14,7 +14,7 @@ public class Immeuble{
 
 
     public Immeuble(){
-        // in
+        // ignored
     }
 
     public Immeuble(String nom, String adresse, Syndicat syndicat){

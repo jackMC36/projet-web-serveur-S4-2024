@@ -46,7 +46,6 @@ public class PersonneGUI {
         return output.toString();
     }
 
-
     public static String createPersonne() throws IOException, TemplateException {
         Configuration configuration = _FreeMarkerInitializer.getContext();
         Writer output = new StringWriter();
@@ -57,13 +56,11 @@ public class PersonneGUI {
     }
 
     public static String savePersonne(String prenom,  String nom, int numTel) throws IOException, TemplateException {
-
         Personne personne = new Personne();
         personne.setNom(nom);
         personne.setPrenom(prenom);
         personne.setNumTel(numTel);
         PersonneDAO p   = new PersonneDAO();
-
         if(p.isPersonneExist(numTel)){
             return "Erreur: La personne avec le numéro de téléphone " + numTel + " existe déjà";
         }
@@ -71,6 +68,4 @@ public class PersonneGUI {
         return getAllPersonnes();
     }
 
-    
-    
 }

@@ -7,7 +7,6 @@
             var etage = document.getElementById("etage").value;
             var numero = document.getElementById("numero").value;
             var superficie = document.getElementById("superficie").value;
-            var adresse = document.getElementById("adresse").value;
             var estLoue = document.getElementById("estLoue").value;
 
             if(etage = ""){

@@ -21,13 +21,4 @@ public class SyndicatCore {
     public static void saveSyndicat(String nom, String adresse,String prenomRef, String nomRef, int numTel, String adresse_mail) {
         new SyndicatDAO().create(new Syndicat(nom, adresse, prenomRef, nomRef, numTel, adresse_mail));
     }
-
-    /* public static void deleteSyndicatByNum(int num)) {
-        new SyndicatDAO().deleteSyndicatByNum(num);
-    }
-
-    public static void saveSyndicat(Syndicat Syndicat) {
-        new SyndicatDAO().create(Syndicat);
-    } */
-
 }

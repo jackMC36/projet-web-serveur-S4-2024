@@ -37,11 +37,6 @@ public class StartServer {
         });
 
         post("/deleteAppartement", (req, res) -> {
-<<<<<<< HEAD
-            return AppartementGUI.deleteAppartement(req.queryParams("Numero","Adresse"));
-        });
-        */
-=======
             return AppartementGUI.deleteAppartement(req);
         });
 
@@ -52,7 +47,6 @@ public class StartServer {
         post("/saveAppartement", (req, res) -> {
             return AppartementGUI.saveAppartement(req);
         });
->>>>>>> 9a5cd6125b9be32a182c15696f870ce8b679c2c1
        
         get("/syndicats", (req, res) -> {
             return SyndicatGUI.getAllSyndicats();
@@ -67,11 +61,8 @@ public class StartServer {
         });
 
         post("/deleteSyndicat", (req, res) -> {
-            return SyndicatGUI.deleteSyndicatByAdresse(req.queryParams("Adresse"));
+            return SyndicatGUI.deleteSyndicatByAdresse(req.queryParams("adresse"));
         });
-
-
-
 
         get("/personnes", (req, res) -> {
             return PersonneGUI.getAllPersonnes();
@@ -83,6 +74,13 @@ public class StartServer {
 
         post("/savePersonne", (req, res) -> {
             return PersonneGUI.savePersonne(req.queryParams("prenom"), req.queryParams("nom"), Integer.parseInt(req.queryParams("numTel")));
+        });
+
+        post("/deletePersonne", (req, res) -> {
+            String num = req.queryParams("numTel");
+            num = num.replaceAll("[^\\d]", "");
+            int numero = Integer.parseInt(num);
+            return PersonneGUI.deletePersonneByNum(numero);
         });
     }
 }

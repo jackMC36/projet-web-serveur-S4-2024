@@ -4,7 +4,7 @@ public class Syndicat {
     private String nom;
     private String adresse;
     private Personne referent;
-    private int numTel; //voir si on le considère comme un entier de dix chiffre ou une chaîne de carac
+    private int numTel;
     private String mail;
 
     public Syndicat() {
@@ -14,7 +14,7 @@ public class Syndicat {
     public Syndicat(String nom, String adresse, String prenomRef, String nomRef, int numTel, String mail) {
         this.nom = nom;
         this.adresse = adresse;
-        this.referent = new Personne(prenomRef, nomRef, numTel);
+        this.referent = new Personne(nomRef, prenomRef, numTel);
         this.numTel = numTel;
         this.mail = mail;
     }
@@ -69,7 +69,4 @@ public class Syndicat {
                 ", mail='" + this.mail + '\'' +
                 '}';
     }
-
-    
-
 }

@@ -73,14 +73,12 @@ public class AppartementGUI {
     }
 
     public static String saveAppartement(Request req) throws IOException, TemplateException {
-        // Create a new Immeuble with the submitted values and save it to the database
         int etage = Integer.parseInt(req.queryParams("etage"));
         int numero = Integer.parseInt(req.queryParams("numero"));
         float superficie = Float.parseFloat(req.queryParams("superficie"));
         String adresse = req.queryParams("adresse");
         int estLoue = Integer.parseInt(req.queryParams("estLoue"));
         AppartementCore.saveAppartement(new Appartement(etage, numero, superficie, adresse, estLoue));
-        // Redirect the user to the list of immeubles
         return getAllAppartementsByAdresse(req);
     }
 }

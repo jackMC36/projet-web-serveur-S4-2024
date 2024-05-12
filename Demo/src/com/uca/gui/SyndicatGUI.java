@@ -62,10 +62,9 @@ public class SyndicatGUI {
     public static String saveSyndicat(String nom, String adresse,String prenomRef, String nomRef, int numTel, String adresse_mail) throws IOException, TemplateException {
     Configuration configuration = _FreeMarkerInitializer.getContext();
 
-    // Check if the Personne exists
+    // Check si la Personne existe
     Personne personne = PersonneCore.getPersonneByNum(numTel);
     if (personne == null) {
-        // If the Personne doesn't exist, display an error message
         return "Erreur: aucune personne n'a été trouvé sous la forme NOM = " + nomRef + " et NUMEROTEL = " + numTel + ". Veuillez vous relire. Veuillez ajouter la personne avant de créer un syndicat. (Voir l'onglet Personnes)";
     }
 

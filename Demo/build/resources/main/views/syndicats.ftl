@@ -22,12 +22,12 @@
         <tr>
             <td>${syndicat.nom}</td>
             <td>${syndicat.adresse}</td>
-            <td><#if syndicat.nom_referent??> ${syndicat.nom_referent} <#else> Aucun nom de référent </#if></td>
-            <td><#if syndicat.numeroTel??> ${syndicat.numeroTel} <#else> Aucun numéro </#if></td>
-            <td><#if syndicat.adresse_mail??> ${syndicat.adresse_mail} <#else> Aucune adresse mail </#if></td>
+            <td>${syndicat.getReferent().getNom()}</td>
+            <td>${syndicat.getNumTel()}</td>
+            <td>${syndicat.getMail()}</td>
             <td>
                 <form action="/deleteSyndicat" method="post">
-                    <input type="hidden" name="Nom" value="${syndicat.getAdresse()}">
+                    <input type="hidden" name="adresse" value="${syndicat.getAdresse()}">
                     <input type="submit" value="Delete">
                 </form>
             </td>                

@@ -6,7 +6,6 @@ public class Appartement {
     private int numero;
     private float superficie;
     private String adresse;
-    //private ArrayList<Personne> listeOccupant;
     private int estLoue; //0 si non, 1 si oui
 
     public Appartement(int etage, int numero, float superficie, String adresse, int estLoue){
@@ -49,16 +48,6 @@ public class Appartement {
         this.superficie = superficie;
     }
 
-    /*
-    public ArrayList<Personne> getListeOccupant() { //PAS UTILISE
-        return this.listeOccupant;
-    }
-
-    public void setListeOccupant(ArrayList<Personne> listeOccupant) { //PAS UTILISE
-        this.listeOccupant = listeOccupant;
-    }
-    */
-
     public int getEstLoue() {
         return this.estLoue;
     }
@@ -73,8 +62,7 @@ public class Appartement {
                 "etage=" + this.etage +
                 ", numero=" + this.numero +
                 ", superficie=" + this.superficie +
-                ", adresse='" + this.adresse + //'\'' +
-                //", listeOccupant=" + this.listeOccupant +
+                ", adresse='" + this.adresse +
                 ", estLoue=" + this.estLoue +
                 '}';
     }

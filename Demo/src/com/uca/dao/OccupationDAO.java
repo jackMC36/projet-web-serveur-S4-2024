@@ -17,8 +17,6 @@ public class OccupationDAO extends _Generic<Occupation> {
             entity.setStatut(resultSet.getInt("statut"));
             entity.setNumTel(resultSet.getInt("numTel"));
             return entity;
-            
-
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

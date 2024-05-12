@@ -18,22 +18,9 @@ public class AppartementDAO extends _Generic<Appartement> {
                 Appartement entity = new Appartement(resultSet.getInt("etage"), resultSet.getInt("numero"), resultSet.getFloat("superficie"), resultSet.getString("adresse"), resultSet.getInt("estLoue"));
                 entities.add(entity);
             }
-            
-            /*
-            Appartement entity = new Appartement();
-            entity.setEtage(resultSet.getInt("etage"));
-            entity.setNumero(resultSet.getInt("numero"));
-            //entity.setAdresse(adresse);
-            entity.setAdresse(resultSet.getString("adresse"));
-            entity.setSuperficie(resultSet.getFloat("superficie"));
-            entity.setEstLoue(resultSet.getBoolean("estLoue"));
-            entities.add(entity);
-            */
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return entities;
     }
 
@@ -66,26 +53,7 @@ public class AppartementDAO extends _Generic<Appartement> {
 
     @Override
     public void delete(Appartement obj) {
-        /*
-        try {
-            PreparedStatement preparedStatement1 = this.connect.prepareStatement("SELECT adresse FROM Immeuble WHERE nom = ?;");
-            preparedStatement1.setString(1, nom);
-            ResultSet resultSet = preparedStatement1.executeQuery();
-            if (resultSet.next()) {
-                String adresse = resultSet.getString("adresse");
-    
-                PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM Appartement WHERE adresse = ?;");
-                preparedStatement2.setString(1, adresse);
-                preparedStatement2.executeUpdate();
-    
-                PreparedStatement preparedStatement3 = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
-                preparedStatement3.setString(1, nom);
-                preparedStatement3.executeUpdate();
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        */
+        // nous n'utilisons pas cette méthode pour notre suppression mais nous sommes obligés de la définir
     }
 
 }
