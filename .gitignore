@@ -1,2 +1,6 @@
 *.txt
 /Modele
+*.aux
+*.log
+*.toc
+*.synctex.gz
