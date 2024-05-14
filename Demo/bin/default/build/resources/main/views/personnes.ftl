@@ -20,7 +20,11 @@
         <tr>
             <td>${personne.getPrenom()}</td>
             <td>${personne.getNom()}</td>
+<<<<<<< HEAD
             <td><#if personne.getNumTel()??> ${personne.toStringNumTel(personne.numTel)} <#else> Aucun Numéro </#if></td>
+=======
+            <td><#if personne.getNumTel()??> ${personne.numTel} <#else> Aucun Numéro </#if></td>
+>>>>>>> 4d96215054846d2ba5d26f088b84ecc1552fa4b9
             <td>
                 <form action="/deletePersonne" method="post">
                     <input type="hidden" name="numTel" value="${personne.getNumTel()}">
