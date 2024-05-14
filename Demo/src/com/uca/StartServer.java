@@ -81,5 +81,21 @@ public class StartServer {
             int numero = Integer.parseInt(num);
             return PersonneGUI.deletePersonneByNum(numero);
         });
+
+        get("/occupations", (req, res) -> {
+            return OccupationGUI.getInfo(req);
+        });
+
+        post("/deleteLocataire", (req, res) -> {
+            return OccupationGUI.deleteLocataire(req);
+        });
+
+        get("/createLocataire", (req, res) -> {
+            return OccupationGUI.createLocataire(req);
+        });
+
+        post("/saveLocataire", (req, res) -> {
+            return OccupationGUI.saveLocataire(req);
+        });
     }
 }

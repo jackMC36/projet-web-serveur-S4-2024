@@ -2,45 +2,58 @@ package src.com.uca.entity;
 
 public class Occupation {
 
-    private int numero_appartement;
-    private int statut;
-    private int numTel;
+    private int numeroTel;
+    private String statut;
+    private int numeroAppt;
+    private String adresseAppt;
 
 
-    public Occupation(){
-        //ignored
+    public Occupation(int numeroTel, String statut, int numeroAppt, String adresseAppt){
+        this.numeroTel = numeroTel;
+        this.statut = statut;
+        this.numeroAppt = numeroAppt;
+        this.adresseAppt = adresseAppt;
     }
 
-    public int getNumero_appartement() {
-        return numero_appartement;
+    public int getNumeroTel() {
+        return this.numeroTel;
     }
 
-    public void setNumero_appartement(int numero_appartement) {
-        this.numero_appartement = numero_appartement;
+    public void setNumeroTel(int numeroTel) {
+        this.numeroTel = numeroTel;
     }
 
-    public int getStatut() {
-        return statut;
+    public String getStatut() {
+        return this.statut;
     }
 
-    public void setStatut(int statut) {
+    public void setStatut(String statut) {
         this.statut = statut;
     }
 
-    public int getNumTel() {
-        return numTel;
+    public int getNumeroAppt() {
+        return this.numeroAppt;
     }
 
-    public void setNumTel(int numTel) {
-        this.numTel = numTel;
+    public void setNumeroAppt(int numeroAppt) {
+        this.numeroAppt = numeroAppt;
+    }
+
+    public String getAdresseAppt(){
+        return this.adresseAppt;
+    }
+
+    public void setAdresseAppt(String adresseAppt){
+        this.adresseAppt = adresseAppt;
     }
 
     @Override
     public String toString() {
         return "Occupation{" +
-                "numero_appartement=" + numero_appartement +
+                "numeroTel=" + numeroTel +
                 ", statut=" + statut +
-                ", numTel=" + numTel +
+                ", numeroAppt=" + numeroAppt +
+                ", adresseAppt=" + adresseAppt +
                 '}';
     }
 }

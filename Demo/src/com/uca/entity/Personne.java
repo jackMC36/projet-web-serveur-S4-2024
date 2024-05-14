@@ -15,8 +15,6 @@ public class Personne {
         this.numTel = numTel;
     }
     
-    
-    
     public String getNom() {
         return this.nom;
     }
@@ -39,6 +37,17 @@ public class Personne {
 
     public void setNumTel(int numTel) {
         this.numTel = numTel;
+    }
+
+    public String toStringNumTel(int numTel){
+        String numero = "0" + numTel;
+        String numeroAvecEspace = "";
+        for (int i = 0 ; i < numero.length() ; i += 2) {
+            numeroAvecEspace += numero.charAt(i);
+            numeroAvecEspace += numero.charAt(i+1);
+            numeroAvecEspace += " ";
+        }
+        return numeroAvecEspace;
     }
 
     @Override

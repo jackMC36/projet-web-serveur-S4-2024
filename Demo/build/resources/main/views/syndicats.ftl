@@ -36,7 +36,7 @@
     </table>
     <p>
       <form action="/createSyndicat" method="get">
-        <input type="submit" value="Créer un nouvel Syndicat">
+        <input type="submit" value="Créer un nouveau syndicat">
       </form>
     </p>
 </body>

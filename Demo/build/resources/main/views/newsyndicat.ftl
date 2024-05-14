@@ -41,7 +41,7 @@
 </head>
 <body>
     <h1>Valet Immobillier Co.</h1>
-    <h2>créer un nouveau Syndicat:</h2>
+    <h2>Créer un nouveau syndicat :</h2>
     <form action="/saveSyndicat" onsubmit="return validateForm()" method="post">
         <p>
             <label for="nom">Nom du syndicat :</label><br>
