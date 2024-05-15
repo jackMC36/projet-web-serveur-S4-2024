@@ -76,10 +76,12 @@ public class OccupationDAO extends _Generic<Occupation> {
             preparedStatement.setString(4, obj.getAdresseAppt());
             preparedStatement.executeUpdate();
 
-            preparedStatement = this.connect.prepareStatement("UPDATE appartement SET estLoue = 1 WHERE numero = ? AND adresse = ?");
-            preparedStatement.setInt(1, obj.getNumeroAppt());
-            preparedStatement.setString(2, obj.getAdresseAppt());
-            preparedStatement.executeUpdate();
+            if(obj.getStatut().equalsIgnoreCase("Locataire")){
+                preparedStatement = this.connect.prepareStatement("UPDATE appartement SET estLoue = 1 WHERE numero = ? AND adresse = ?");
+                preparedStatement.setInt(1, obj.getNumeroAppt());
+                preparedStatement.setString(2, obj.getAdresseAppt());
+                preparedStatement.executeUpdate();
+            }            
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -93,21 +95,24 @@ public class OccupationDAO extends _Generic<Occupation> {
             preparedStatement1.setInt(1, obj.getNumeroTel());
             preparedStatement1.executeUpdate();
 
-            Occupation entity = null;
-            PreparedStatement preparedStatement2 = this.connect.prepareStatement("SELECT * FROM Occupation WHERE statut = 'Locataire' AND numeroAppt = ? AND adresseAppt = ?");
-            preparedStatement2.setInt(1, obj.getNumeroAppt());
-            preparedStatement2.setString(2, obj.getAdresseAppt());
-            ResultSet resultSet = preparedStatement2.executeQuery();
-            if (resultSet.next()) {
-                entity = new Occupation(resultSet.getInt("numeroTel"), resultSet.getString("statut"), resultSet.getInt("numeroAppt"), resultSet.getString("adresseAppt"));
-            }
+            if(obj.getStatut().equalsIgnoreCase("Locataire")){
+                Occupation entity = null;
+                PreparedStatement preparedStatement2 = this.connect.prepareStatement("SELECT * FROM Occupation WHERE statut = 'Locataire' AND numeroAppt = ? AND adresseAppt = ?");
+                preparedStatement2.setInt(1, obj.getNumeroAppt());
+                preparedStatement2.setString(2, obj.getAdresseAppt());
+                ResultSet resultSet = preparedStatement2.executeQuery();
+                if (resultSet.next()) {
+                    entity = new Occupation(resultSet.getInt("numeroTel"), resultSet.getString("statut"), resultSet.getInt("numeroAppt"), resultSet.getString("adresseAppt"));
+                }
 
-            if(entity == null){
-                PreparedStatement preparedStatement = this.connect.prepareStatement("UPDATE appartement SET estLoue = 0 WHERE numero = ? AND adresse = ?");
-                preparedStatement.setInt(1, obj.getNumeroAppt());
-                preparedStatement.setString(2, obj.getAdresseAppt());
-                preparedStatement.executeUpdate();
+                if(entity == null){
+                    PreparedStatement preparedStatement = this.connect.prepareStatement("UPDATE appartement SET estLoue = 0 WHERE numero = ? AND adresse = ?");
+                    preparedStatement.setInt(1, obj.getNumeroAppt());
+                    preparedStatement.setString(2, obj.getAdresseAppt());
+                    preparedStatement.executeUpdate();
+                }
             }
+            
         } catch (SQLException e) {
             e.printStackTrace();
         }

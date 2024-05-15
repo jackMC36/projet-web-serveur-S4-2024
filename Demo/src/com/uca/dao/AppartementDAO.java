@@ -25,11 +25,16 @@ public class AppartementDAO extends _Generic<Appartement> {
     }
 
     public void deleteAppartement(int numero, String adresse) {
-        try {
-            PreparedStatement preparedStatement1 = this.connect.prepareStatement("DELETE FROM appartement WHERE numero = ? AND adresse = ?;");
-            preparedStatement1.setInt(1, numero);
-            preparedStatement1.setString(2, adresse);
-            preparedStatement1.executeUpdate();
+        try {      
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM occupation WHERE numeroAppt = ? AND adresseAppt = ?;");
+            preparedStatement.setInt(1, numero);
+            preparedStatement.setString(2, adresse);
+            preparedStatement.executeUpdate();
+            
+            preparedStatement = this.connect.prepareStatement("DELETE FROM appartement WHERE numero = ? AND adresse = ?;");
+            preparedStatement.setInt(1, numero);
+            preparedStatement.setString(2, adresse);
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

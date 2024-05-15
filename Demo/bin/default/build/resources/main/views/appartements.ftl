@@ -17,7 +17,7 @@
       <#list appartements as appartement>
         <tr>
             <td>${appartement.etage}</td>
-            <td>${appartement.numero}</td>
+            <td><a href="/occupations?numeroAppt=${appartement.numero}&adresseAppt=${appartement.adresse}">${appartement.numero}</a></td>
             <td>${appartement.superficie}</td>
             <td>${appartement.adresse}</td>
             <td><#if appartement.estLoue==0> A louer <#else> Occupé </#if></td>

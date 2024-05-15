@@ -16,11 +16,11 @@ public class OccupationCore {
         return new OccupationDAO().getAllLocataire(numeroAppt, adresseAppt);
     }
 
-    public static void deleteLocataire(Occupation occupation) {
+    public static void delete(Occupation occupation) {
         new OccupationDAO().delete(occupation);
     }
 
-    public static void saveLocataire(Occupation occupation) {
+    public static void save(Occupation occupation) {
         new OccupationDAO().create(occupation);
     }
 }

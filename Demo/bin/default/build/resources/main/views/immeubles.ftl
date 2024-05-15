@@ -29,7 +29,7 @@
             <td>${immeuble.getSyndicatNom()}</td>
             <td>
                 <form action="/deleteImmeuble" method="post">
-                    <input type="hidden" name="Nom" value="${immeuble.getNom()}">
+                    <input type="hidden" name="adresse" value="${immeuble.adresse}">
                     <input type="submit" value="Delete">
                 </form>
             </td>                

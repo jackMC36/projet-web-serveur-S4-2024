@@ -19,13 +19,22 @@
             <td>${proprio.nom}</td>
             <td>${proprio.toStringNumTel(proprio.numTel)}</td>
             <td>
-                Bouton suppression
+                <form action="/deleteProprietaire" method="post">
+                    <input type="hidden" name="numeroTel" value="${proprio.numTel}">
+                    <input type="hidden" name="numeroAppt" value="${numeroAppt}">
+                    <input type="hidden" name="adresseAppt" value="${adresseAppt}">
+                    <input type="submit" value="Retirer ce propriétaire">
+                </form>
             </td>                
         </tr>
       </#list>
     </table>
     <p>
-      Bouton création
+      <form action="/createProprietaire" method="get">
+        <input type="hidden" name="numeroAppt" value="${numeroAppt}">
+        <input type="hidden" name="adresseAppt" value="${adresseAppt}">
+        <input type="submit" value="Ajouter un propriétaire pour cet appartement">
+      </form>
     </p>
     <h3>Locataire(s)</h3>
     <table>

@@ -52,22 +52,19 @@ public class ImmeubleDAO extends _Generic<Immeuble> {
         return immeuble;
     }
 
-    public void deleteImmeubleByNom(String nom) {
+    public void deleteImmeubleByAdresse(String adresse) {
         try {
-            PreparedStatement preparedStatement1 = this.connect.prepareStatement("SELECT adresse FROM Immeuble WHERE nom = ?;");
-            preparedStatement1.setString(1, nom);
-            ResultSet resultSet = preparedStatement1.executeQuery();
-            if (resultSet.next()) {
-                String adresse = resultSet.getString("adresse");
-    
-                PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM Appartement WHERE adresse = ?;");
-                preparedStatement2.setString(1, adresse);
-                preparedStatement2.executeUpdate();
-    
-                PreparedStatement preparedStatement3 = this.connect.prepareStatement("DELETE FROM Immeuble WHERE nom = ?;");
-                preparedStatement3.setString(1, nom);
-                preparedStatement3.executeUpdate();
-            }
+            PreparedStatement preparedStatement = this.connect.prepareStatement("DELETE FROM occupation WHERE adresseAppt = ?;");
+            preparedStatement.setString(1, adresse);
+            preparedStatement.executeUpdate();
+
+            PreparedStatement preparedStatement2 = this.connect.prepareStatement("DELETE FROM appartement WHERE adresse = ?;");
+            preparedStatement2.setString(1, adresse);
+            preparedStatement2.executeUpdate();
+
+            PreparedStatement preparedStatement3 = this.connect.prepareStatement("DELETE FROM immeuble WHERE adresse = ?;");
+            preparedStatement3.setString(1, adresse);
+            preparedStatement3.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

@@ -89,7 +89,6 @@ public class SyndicatDAO extends _Generic<Syndicat> {
                 Personne personne = personneDAO.getPersonneByNom(resultSet.getString("nom_referent"));
                 entity.setReferent(personne);
             }
-            
         } catch (SQLException e) {
             e.printStackTrace();
         }

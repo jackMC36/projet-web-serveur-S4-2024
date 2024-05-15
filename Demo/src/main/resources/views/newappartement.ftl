@@ -23,11 +23,6 @@
                 alert("La superficie de l'appartement ne peut pas être vide");
                 return false;
             }
-
-            if (estLoue == "") {
-                alert("Il est obligatoire de présicé le statut de l'appartement");
-                return false;
-            }
         }
     </script>
 </head>
@@ -55,10 +50,7 @@
         <input type="hidden" name="adresse" value="${adresseImmeuble}"/>
         <p>Adresse : ${adresseImmeuble}</p>
 
-        <p>
-            <label for="syndicatNom">Statut de l'appartement (0 si non, 1 si oui):</label><br>
-            <input type="number" id="estLoue" name="estLoue" min="0" max="1"><br>
-        </p>
+        <input type="hidden" name="estLoue" value="${0}"/>
 
         <input type="submit" value="Save">
     </form>

@@ -59,6 +59,17 @@ public class Syndicat {
         this.mail = mail;
     }
 
+    public String toStringNumTel(int numTel){
+        String numero = "0" + numTel;
+        String numeroAvecEspace = "";
+        for (int i = 0 ; i < numero.length() ; i += 2) {
+            numeroAvecEspace += numero.charAt(i);
+            numeroAvecEspace += numero.charAt(i+1);
+            numeroAvecEspace += " ";
+        }
+        return numeroAvecEspace;
+    }
+
     @Override
     public String toString() {
         return "Syndicat{" +

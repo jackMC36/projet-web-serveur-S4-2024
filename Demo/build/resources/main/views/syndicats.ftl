@@ -23,7 +23,7 @@
             <td>${syndicat.nom}</td>
             <td>${syndicat.adresse}</td>
             <td>${syndicat.getReferent().getNom()}</td>
-            <td>${syndicat.getNumTel()}</td>
+            <td>${syndicat.toStringNumTel(syndicat.getNumTel())}</td>
             <td>${syndicat.getMail()}</td>
             <td>
                 <form action="/deleteSyndicat" method="post">

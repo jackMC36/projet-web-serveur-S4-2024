@@ -23,7 +23,7 @@
             <td>${syndicat.nom}</td>
             <td>${syndicat.adresse}</td>
             <td>${syndicat.getReferent().getNom()}</td>
-            <td>${syndicat.getNumTel()}</td>
+            <td>${syndicat.toStringNumTel(syndicat.getNumTel())}</td>
             <td>${syndicat.getMail()}</td>
             <td>
                 <form action="/deleteSyndicat" method="post">
@@ -36,7 +36,7 @@
     </table>
     <p>
       <form action="/createSyndicat" method="get">
-        <input type="submit" value="Créer un nouvel Syndicat">
+        <input type="submit" value="Créer un nouveau syndicat">
       </form>
     </p>
 </body>
