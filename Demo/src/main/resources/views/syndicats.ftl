@@ -6,7 +6,7 @@
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
     <form action="/immeubles" method="get">
-        <input type="submit" value="Home">
+        <input type="submit" value="Acceuil">
     </form>
     <h2>Liste des syndicats :</h2>
     <table>

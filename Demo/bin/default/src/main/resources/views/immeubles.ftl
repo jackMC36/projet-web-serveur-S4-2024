@@ -6,6 +6,8 @@
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
     <form action="/stats" method="get">
+        <input type="hidden" name="numeroTel" value="0783087187">
+        <input type="hidden" name="prenom" value="Killian">
         <input type="submit" value="Mon parc immobilier">
     </form>
     <form action="/connexion" method="get">

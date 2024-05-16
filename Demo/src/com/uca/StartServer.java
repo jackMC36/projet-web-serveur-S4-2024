@@ -113,5 +113,9 @@ public class StartServer {
         get("/stats", (req, res) -> {
             return StatsGUI.getAllStats(req);
         });
+
+        get("/statsImmeuble", (req, res) -> {
+            return StatsGUI.getStatsByImmeuble(req);
+        });
     }
 }

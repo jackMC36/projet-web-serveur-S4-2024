@@ -1,18 +1,21 @@
 package src.com.uca.core;
 
+import src.com.uca.entity.Immeuble;
 import src.com.uca.dao.StatsDAO;
 
 import java.util.ArrayList;
 
 public class StatsCore {
 
-    public static ArrayList<Integer> getLogementLoue(int numeroTel) {
-        return new StatsDAO().getLogementLoue(numeroTel);
+    public static ArrayList<Integer> getInfosLogement(int numeroTel) {
+        return new StatsDAO().getInfosLogement(numeroTel);
     }
 
-    /*
-    public static int getLogementVide() { //est-ce qu'on fait une fonction pour ça OU une soustraction de 100% moins le nb de logement vide ??? Car si un logement n'est pas loué, alors il est forcément libre
-        return new StatsDAO().getLogementVide();
+    public static ArrayList<Integer> getInfosLogementByImmeuble(int numeroTel, String adresse) {
+        return new StatsDAO().getInfosLogementByImmeuble(numeroTel, adresse);
     }
-    */
+
+    public static ArrayList<Immeuble> getAllImmeublesByProprietaire(int numeroTel) {
+        return new StatsDAO().getAllImmeublesByProprietaire(numeroTel);
+    }
 }
