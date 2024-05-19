@@ -5,6 +5,17 @@
 </head>
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
+<<<<<<< HEAD
+=======
+    <form action="/stats" method="get">
+        <input type="hidden" name="numeroTel" value="0783087187">
+        <input type="hidden" name="prenom" value="Killian">
+        <input type="submit" value="Mon parc immobilier">
+    </form>
+    <form action="/connexion" method="get">
+        <input type="submit" value="Connexion">
+    </form>
+>>>>>>> 3aa5dde958bc7c32c22c6b93c7418f3268a97e17
     <form action="/syndicats" method="get">
         <input type="submit" value="Syndicats">
     </form>
@@ -26,7 +37,7 @@
             <td>${immeuble.getSyndicatNom()}</td>
             <td>
                 <form action="/deleteImmeuble" method="post">
-                    <input type="hidden" name="Nom" value="${immeuble.getNom()}">
+                    <input type="hidden" name="adresse" value="${immeuble.adresse}">
                     <input type="submit" value="Delete">
                 </form>
             </td>                

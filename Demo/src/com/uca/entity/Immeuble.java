@@ -11,10 +11,13 @@ public class Immeuble{
     private Syndicat syndicat;
     private ArrayList<Appartement> listeAppt;
 
-
-
     public Immeuble(){
         // ignored
+    }
+
+    public Immeuble(String nom, String adresse){
+        this.nom = nom;
+        this.adresse = adresse;
     }
 
     public Immeuble(String nom, String adresse, Syndicat syndicat){

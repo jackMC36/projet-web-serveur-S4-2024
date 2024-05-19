@@ -70,7 +70,7 @@ public class StartServer {
         });
 
         post("/deleteImmeuble", (req, res) -> {
-            return ImmeubleGUI.deleteImmeubleByNom(req.queryParams("Nom"));
+            return ImmeubleGUI.deleteImmeubleByAdresse(req.queryParams("adresse"));
         });
 
         get("/createImmeuble", (req, res) -> {
@@ -130,6 +130,42 @@ public class StartServer {
             num = num.replaceAll("[^\\d]", "");
             int numero = Integer.parseInt(num);
             return PersonneGUI.deletePersonneByNum(numero);
+        });
+
+        get("/occupations", (req, res) -> {
+            return OccupationGUI.getInfo(req);
+        });
+
+        post("/deleteProprietaire", (req, res) -> {
+            return OccupationGUI.deleteProprietaire(req);
+        });
+
+        get("/createProprietaire", (req, res) -> {
+            return OccupationGUI.createProprietaire(req);
+        });
+
+        post("/saveProprietaire", (req, res) -> {
+            return OccupationGUI.saveProprietaire(req);
+        });
+
+        post("/deleteLocataire", (req, res) -> {
+            return OccupationGUI.deleteLocataire(req);
+        });
+
+        get("/createLocataire", (req, res) -> {
+            return OccupationGUI.createLocataire(req);
+        });
+
+        post("/saveLocataire", (req, res) -> {
+            return OccupationGUI.saveLocataire(req);
+        });
+
+        get("/stats", (req, res) -> {
+            return StatsGUI.getAllStats(req);
+        });
+
+        get("/statsImmeuble", (req, res) -> {
+            return StatsGUI.getStatsByImmeuble(req);
         });
     }
 }

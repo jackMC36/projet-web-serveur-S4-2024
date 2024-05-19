@@ -78,7 +78,7 @@ public class AppartementGUI {
         float superficie = Float.parseFloat(req.queryParams("superficie"));
         String adresse = req.queryParams("adresse");
         int estLoue = Integer.parseInt(req.queryParams("estLoue"));
-        AppartementCore.saveAppartement(new Appartement(etage, numero, superficie, adresse, estLoue));
+        AppartementCore.saveAppartement(new Appartement(etage, numero, superficie, adresse, 0));
         return getAllAppartementsByAdresse(req);
     }
 }

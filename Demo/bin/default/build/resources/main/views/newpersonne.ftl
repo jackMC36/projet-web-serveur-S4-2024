@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <script>
         function validateFrenchPhoneNumber(num) {
-            var regex = /^(0|\+33)[1-9](\d{2}){4}$/;
+            var regex = /^(0)[1-9](\d{2}){4}$/;
             return regex.test(num);
         }
         function validateForm() {
@@ -28,7 +28,7 @@
             }
 
             if (!validateFrenchPhoneNumber(numTel)){
-                alert("Le numero doit être de la forme 0XXXXXXXXX ou +33XXXXXXXXX")
+                alert("Le numero doit être de la forme 0XXXXXXXXX")
                 return false;
             }
         }

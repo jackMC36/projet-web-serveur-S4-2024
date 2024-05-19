@@ -12,9 +12,13 @@ public class _Initializer {
 
             PreparedStatement statement;
 
+<<<<<<< HEAD
             /* INITIALISATION DE LA BASE DE DONNEES */
             
             /* DROP DES TABLES
+=======
+            /* INITIALISATION  
+>>>>>>> 3aa5dde958bc7c32c22c6b93c7418f3268a97e17
             statement = connection.prepareStatement("DROP TABLE IF EXISTS Occupation;");
             statement.executeUpdate();
             
@@ -43,13 +47,14 @@ public class _Initializer {
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Syndicat (nom VARCHAR(25), adresse VARCHAR(50), nom_referent VARCHAR(25), numeroTel INT, adresse_mail VARCHAR(30), PRIMARY KEY (nom,adresse), FOREIGN KEY (nom_referent, numeroTel) REFERENCES Personne(nom, numeroTel));");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Immeuble (nom VARCHAR(40), adresse VARCHAR(50) PRIMARY KEY, syndicat VARCHAR(25), FOREIGN KEY (syndicat) REFERENCES Syndicat(nom));");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Immeuble (nom VARCHAR(40), adresse VARCHAR(100) PRIMARY KEY, syndicat VARCHAR(25), FOREIGN KEY (syndicat) REFERENCES Syndicat(nom));");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie INT, estLoue INT, adresse VARCHAR(40), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Appartement (etage INT, numero INT, superficie INT, estLoue INT, adresse VARCHAR(100), PRIMARY KEY (numero, adresse), FOREIGN KEY (adresse) REFERENCES Immeuble(adresse));");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numero INT, statut INT, appartement_numero INT, adresse VARCHAR(40), FOREIGN KEY (numero) REFERENCES Personne(numeroTel), FOREIGN KEY (adresse) REFERENCES Appartement(adresse), FOREIGN KEY (appartement_numero) REFERENCES Appartement(numero));");
+            // la clé primaire de cette table est l'ensemble des attributs car une même personne peut-être propriétaire de plusieurs appartement par exemple, elle ne peut juste pas être plusieurs fois propriétaire du même appt
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Occupation (numeroTel INT, statut VARCHAR(15), numeroAppt INT, adresseAppt VARCHAR(100), PRIMARY KEY(numeroTel, statut, numeroAppt, adresseAppt), FOREIGN KEY (numeroTel) REFERENCES Personne(numeroTel), FOREIGN KEY (adresseAppt) REFERENCES Appartement(adresse), FOREIGN KEY (numeroAppt) REFERENCES Appartement(numero));");
             statement.executeUpdate();
 
             statement = connection.prepareStatement("INSERT INTO Personne (nom, prenom, numeroTel) VALUES ('Dupont', 'Jean', 0601020304);");
@@ -67,13 +72,19 @@ public class _Initializer {
             statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (1, 1, 50, 0, '1 rue de la paix');");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (2, 21, 50, 0, '1 rue de la paix');");
+            statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (2, 21, 50, 1, '1 rue de la paix');");
             statement.executeUpdate();
 
             statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (6, 64, 50, 0, '1 rue de la paix');");
             statement.executeUpdate();
 
-            statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (5, 52, 50, 1, '1 rue de la paix');");
+            statement = connection.prepareStatement("INSERT INTO Appartement (etage, numero, superficie, estLoue, adresse) VALUES (5, 52, 50, 0, '1 rue de la paix');");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("INSERT INTO Occupation (numeroTel, statut, numeroAppt, adresseAppt) VALUES (0601020304, 'Locataire', 21, '1 rue de la paix');");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("INSERT INTO Occupation (numeroTel, statut, numeroAppt, adresseAppt) VALUES (0601020305, 'Propriétaire', 21, '1 rue de la paix');");
             statement.executeUpdate();
             */
 

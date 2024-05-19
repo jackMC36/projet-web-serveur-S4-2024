@@ -6,7 +6,7 @@
 <body xmlns="http://www.w3.org/1999/html">
     <h1>Valet Immobillier Co.</h1>
     <form action="/immeubles" method="get">
-        <input type="submit" value="Home">
+        <input type="submit" value="Acceuil">
     </form>
     <h2>Liste des personnes :</h2>
     <table>
@@ -20,7 +20,7 @@
         <tr>
             <td>${personne.getPrenom()}</td>
             <td>${personne.getNom()}</td>
-            <td><#if personne.getNumTel()??> ${personne.numTel} <#else> Aucun Numéro </#if></td>
+            <td><#if personne.getNumTel()??> ${personne.toStringNumTel(personne.numTel)} <#else> Aucun Numéro </#if></td>
             <td>
                 <form action="/deletePersonne" method="post">
                     <input type="hidden" name="numTel" value="${personne.getNumTel()}">

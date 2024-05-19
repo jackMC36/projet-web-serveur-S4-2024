@@ -16,7 +16,6 @@
 Ce projet réalisé au cours des dernières semaines a consisté en la réalisation d'un site permettant de gérer un parc immobilier. Ce rapport contient un bref résumé de l'architecture de notre site.
 \end{abstract}
 
-
 \section{Introduction : Description général du projet}
 Ce projet à été réalisé principalement en langage Java. Nous avons également utilisé du ftl pour réaliser nos templates et du H2 pour la gestion de notre base de données. Par ailleurs, il fait également appel à d'autres logiciels tel que Gitlab et son espace de travail partagé, ou encore le logiciel \LaTeX \space qui nous permet de rédiger ce rapport. Ce projet comporte plusieurs documents :
 \begin{enumerate}
@@ -24,8 +23,6 @@ Ce projet à été réalisé principalement en langage Java. Nous avons égaleme
 \item Les \textbf{templates} de nos pages .ftl
 \item Un \textbf{rapport} sur le projet \textit{GALFREVEYRET\_KOZIK.pdf} fait à partir de \LaTeX \\
 \end{enumerate}
-
-\noindent\textbf{! Attention !} Nous sommes conscient que certaines fonctionnalités comme la possibilité de se connecter / créer un compte et la possibilité d'avoir accès à des statistiques n'ont pas ou seulement partiellement étaient implémentées. Cela est dû à un manque de temps puisque nous avions nos examens à préparer en même temps. Bien que cela ne soit pas une excuse en soi, nous tenions à le préciser. 
 
 \section{Réponses au TP1}
 \underline{Question 1 :} Quelles sont les écrans (interfaces) qui vous semblent intéressantes à afficher aux utilisateurs ? \\ \\
@@ -107,7 +104,7 @@ Voici les solutions technologiques utilisées pour ce projet :
 \item \textbf{POST /deleteSyndicat} va supprimer un syndicat existant \\
 \end{itemize}
 
-\noindent \textbf{Personnes}
+\noindent \textbf{Personne}
 \begin{itemize}
 \item \textbf{GET /personnes} va afficher la page listant toutes les personnes
 \item \textbf{GET /createPersonne} va afficher le formulaire de création d'une nouvelle personne
@@ -115,10 +112,18 @@ Voici les solutions technologiques utilisées pour ce projet :
 \item \textbf{POST /deletePersonne} va supprimer une personne existante \\
 \end{itemize}
 
+\noindent \textbf{Occupation (lien entre une personne et un appartement)}
+\begin{itemize}
+\item \textbf{GET /occupations} va afficher la page listant tout les locataires et propriétaires d'un appartement
+\item \textbf{GET /createProprietaire} (resp. \textbf{GET /createLocataire}) va afficher le formulaire de création d'un nouveau propriétaire (resp. locataire)
+\item \textbf{POST /saveProprietaire} (resp. \textbf{POST /saveLocataire}) va ajouter un nouveau propriétaire (resp. locataire) à l'appartement
+\item \textbf{POST /deleteProprietaire} (resp. \textbf{POST /deleteLocataire}) va retirer un propriétaire (resp. locataire) de l'appartement \\
+\end{itemize}
+
 \noindent \textbf{Statistiques}
 \begin{itemize}
-\item \textbf{GET /statsParc} va afficher la page permettant de consulter les statistiques d'un parc immobilier
-\item \textbf{GET /stats} va afficher la page permettant de consulter les statistiques d'un immeuble \\
+\item \textbf{GET /stats} va afficher la page permettant de consulter les statistiques d'un parc immobilier
+\item \textbf{GET /statsImmeuble} va afficher la page permettant de consulter les statistiques d'un immeuble \\
 \end{itemize}
 
 \end{document}
