@@ -6,15 +6,15 @@
 </head>
 <body>
     <h2>Connexion</h2>
-    <form action="/login" method="post">
+    <form action="/loginCompte" method="post">
         <p>
-            <label for="email">Adresse e-mail :</label><br>
-            <input type="email" id="email" name="email" required><br>
+            <label for="numTel">Numéro de téléphone :</label><br>
+            <input type="numTel" id="numTel" name="numTel" required><br>
         </p>
 
         <p>
             <label for="password">Mot de passe :</label><br>
-            <input type="password" id="password" name="password" required><br>
+            <input type="password" id="mdp" name="mdp" required><br>
         </p>
 
         <input type="submit" value="Se connecter">

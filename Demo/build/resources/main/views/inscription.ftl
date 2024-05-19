@@ -6,15 +6,15 @@
 </head>
 <body>
     <h2>Créer un compte</h2>
-    <form action="/signup" method="post">
+    <form action="/saveCompte" method="post">
         <p>
-            <label for="newEmail">Nouvelle adresse e-mail :</label><br>
-            <input type="email" id="newEmail" name="newEmail" required><br>
+            <label for="numTel">Nouveau numéro de téléphone :</label><br>
+            <input type="numTel" id="numTel" name="numTel" required><br>
         </p>
 
         <p>
             <label for="newPassword">Nouveau mot de passe :</label><br>
-            <input type="password" id="newPassword" name="newPassword" required><br>
+            <input type="password" id="mdp" name="mdp" required><br>
         </p>
 
         <input type="submit" value="Créer un compte">

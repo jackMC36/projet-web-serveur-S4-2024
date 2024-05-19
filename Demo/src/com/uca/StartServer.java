@@ -1,7 +1,18 @@
 package src.com.uca;
 
+import src.com.uca.core.ImmeubleCore;
 import src.com.uca.dao._Initializer;
 import src.com.uca.gui.*;
+import freemarker.template.Configuration;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import src.com.uca.core.*;
+
+import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 
 import static spark.Spark.*;
 
@@ -15,6 +26,45 @@ public class StartServer {
         _Initializer.Init();
 
         //Defining our routes
+
+        get("/", (req, res) -> {
+            Configuration configuration = _FreeMarkerInitializer.getContext();
+            Writer output = new StringWriter();
+            Template template = configuration.getTemplate("index.ftl");
+            template.setOutputEncoding("UTF-8");
+            template.process(new HashMap<>(), output);
+            return output.toString();
+        });
+
+        get("/inscription", (req, res) -> {
+            return CompteGUI.inscription();
+        });
+
+        get("/connexion", (req, res) -> {
+           return CompteGUI.connexion();
+        });
+
+        post("/saveCompte", (req, res) -> {
+            if (req.queryParams("numTel") == null || req.queryParams("mdp") == null) {
+                return "Erreur : veuillez remplir tous les champs";
+            }
+            if (CompteCore.checkNumberInDB(Integer.parseInt(req.queryParams("numTel")))) {
+                return "Erreur : numéro de téléphone déjà enregistré";
+            }
+            return CompteGUI.saveCompte(Integer.parseInt(req.queryParams("numTel")), req.queryParams("mdp"));
+        });
+
+        post("/loginCompte", (req, res) -> {
+            if (req.queryParams("numTel") == null || req.queryParams("mdp") == null) {
+                return "Erreur : veuillez remplir tous les champs";
+            }
+            if (!CompteCore.checkNumberInDB(Integer.parseInt(req.queryParams("numTel")))) {
+                return "Erreur : numéro de téléphone non enregistré";
+            }
+            return CompteGUI.loginCompte(Integer.parseInt(req.queryParams("numTel")), req.queryParams("mdp"));
+        });
+            
+
         get("/immeubles", (req, res) -> {
             return ImmeubleGUI.getAllImmeubles();
         });

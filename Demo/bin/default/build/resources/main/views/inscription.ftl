@@ -6,10 +6,10 @@
 </head>
 <body>
     <h2>Créer un compte</h2>
-    <form action="/signup" method="post">
+    <form action="/saveCompte" method="post">
         <p>
-            <label for="newEmail">Nouvelle adresse e-mail :</label><br>
-            <input type="email" id="newEmail" name="newEmail" required><br>
+            <label for="numTel">Nouveau numéro de téléphone :</label><br>
+            <input type="numTel" id="numTel" name="numTel" required><br>
         </p>
 
         <p>

@@ -12,7 +12,9 @@ public class _Initializer {
 
             PreparedStatement statement;
 
-            /* INITIALISATION        
+            /* INITIALISATION DE LA BASE DE DONNEES */
+            
+            /* DROP DES TABLES
             statement = connection.prepareStatement("DROP TABLE IF EXISTS Occupation;");
             statement.executeUpdate();
             
@@ -26,6 +28,13 @@ public class _Initializer {
             statement.executeUpdate();
 
             statement = connection.prepareStatement("DROP TABLE IF EXISTS Personne;");
+            statement.executeUpdate();
+
+            statement = connection.prepareStatement("DROP TABLE IF EXISTS Compte;");
+            statement.executeUpdate(); */
+
+            /* CREATION DES TABLES
+            statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Compte(num_tel INT PRIMARY KEY, mdp VARCHAR(30));");
             statement.executeUpdate();
 
             statement = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Personne (nom VARCHAR(30), prenom VARCHAR(30), numeroTel INT PRIMARY KEY);");

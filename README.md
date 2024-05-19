@@ -36,3 +36,5 @@ Noté ce qui s'est bien passé et moins bien
 ## Pour lancer
 
 ./gradlew run
+
+localhost:8081/
